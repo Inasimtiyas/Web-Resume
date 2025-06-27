@@ -20,6 +20,8 @@ nav a {
   margin: 0 15px;
   font-weight: bold;
   font-style: open sans;
+  display: inline-block;
+  padding: 10px;
 }
 
 nav a:hover {
@@ -31,8 +33,10 @@ nav a:hover {
   max-width: 900px;
   margin: 40px auto;
   background: rgba(0, 0, 0, 0.5);
-  padding: 30px;
+  padding: 15px;
   border-radius: 10px;
+  width: 90%;
+  margin: auto;
 }
 
 h1 ,h4, h2 {
@@ -42,12 +46,14 @@ h1 ,h4, h2 {
 }
 
 img.profile  {
-  width: 150px;
-  height: 150px;
+   
+  max-width: 100%;
+  height: auto;
   border-radius: 50%;
   border: 3px solid rgb(205, 241, 1);
   object-fit: cover;
   float: left ;
+  width: 150px;
 }
 
 img.company  {
@@ -152,19 +158,10 @@ body::before {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   nav a {
     display: block;
     margin: 10px 0;
   }
 }
 
-.container {
-  padding: 10px;
-}
-
-img {
-  width: 100%;
-  height: auto;
-
-}
