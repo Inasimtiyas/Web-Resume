@@ -18,29 +18,32 @@ body::before {
 
 nav {
   background-color: rgba(34, 13, 13, 0.7);
-  padding: 15px;
+  padding: 15px 10px;
   text-align: center;
-  transform: scale(0.9);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 nav a {
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 15px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 16px;
+  border-radius: 5px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
   background: #f8c291;
   color: #000;
-  border-radius: 5px;
 }
 
 nav a.active {
   background: #fff;
   color: #e74c3c;
-  border-radius: 5px;
 }
 
 .container {
@@ -59,7 +62,7 @@ nav a.active {
 .container:hover {
   background: #68171c4f;
   color: #fdfdfd;
-  transform: scale(0.9);
+  transform: scale(0.98);
   cursor: pointer;
 }
 
@@ -70,18 +73,19 @@ h1, h2, h4 {
 }
 
 img.profile {
-  width: 150px;
+  width: 140px;
   height: auto;
   border-radius: 10px;
   border: 3px solid rgb(205, 241, 1);
   object-fit: cover;
   float: left;
+  margin-right: 20px;
   animation: slideLeft 0.8s ease-out forwards;
 }
 
 img.company {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 3px solid rgb(255, 255, 255);
   object-fit: cover;
@@ -89,8 +93,8 @@ img.company {
 }
 
 img.icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: 0.5px solid rgb(14, 12, 12);
   object-fit: cover;
@@ -109,17 +113,30 @@ img.icon {
   100% { opacity: 1; transform: translateX(0); }
 }
 
-/* Responsive */
+/* Mobile Responsive */
 @media (max-width: 600px) {
-  h1 { font-size: 24px; }
-  h2 { font-size: 20px; }
-  p, a, li { font-size: 16px; }
+  nav {
+    flex-direction: column;
+    gap: 0;
+  }
 
   nav a {
     display: block;
-    margin: 10px 0;
+    margin: 8px auto;
     font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
   }
+
+  .container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  p, a, li { font-size: 15px; line-height: 1.6; }
 
   img.profile,
   img.company,
@@ -129,12 +146,51 @@ img.icon {
     margin: 10px auto;
   }
 
-  .container {
-    padding: 10px;
-    width: 95%;
-  }
-
   body {
     overflow-x: hidden;
   }
+}
+
+.footer-icons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-icons img.icon {
+  margin: 0 8px;
+  float: none;
+}
+
+<div class="footer-icons">
+  <a href="https://www.linkedin.com/in/inasimti">
+    <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon" />
+  </a>
+  <img src="./Files/github.png" alt="GitHub" class="icon" />
+  <a href="https://www.facebook.com/share/1Ec4FhveFs/">
+    <img src="./Files/facebook.webp" alt="Facebook" class="icon" />
+  </a>
+  <a href="https://www.instagram.com/inas_imti">
+    <img src="./Files/Insta.png" alt="Instagram" class="icon" />
+  </a>
+  <a href="mailto:inasimti9@gmail.com">
+    <img src="./Files/Mail.webp" alt="Email" class="icon" />
+  </a>
+</div>
+
+body, p, li {
+line-height: 1.7;
+}
+
+.container:hover {
+transform: scale(0.98);
+}
+
+.container:hover {
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+  background: #68171c4f;
+}
+
+img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
 }
