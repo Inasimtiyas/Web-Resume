@@ -16,32 +16,9 @@
     <a href="skills.html">Skills</a>
     <a href="contact.html">Contact</a>
     <a href="My Projects.html">My Projects</a>
-    <a href="./My Gallery.html" onclick="unlockProject()">My Gallery🔒</a>
-
+    <a href="./My Gallery.html" onclick="accessGallery()">My Gallery 🔒</a>
   </nav>
-<div class="container" id="protectedContent" style="display: none; margin: 2rem;">
-  <h2>🔐 Welcome to My Gellery</h2>
-  <p style="color: yellow;">This is the protected project section.</p>
 
-<p>hfgyfhujbjkv</p>
-</div>
-
-
-<script>
-  function unlockProject() {
-    const password = prompt("zi07");
-    const correctPassword = "zi07";
-
-    if (password === correctPassword) {
-      document.getElementById("protectedContent").style.display = "block";
-      window.scrollTo(0, document.body.scrollHeight);
-    } else {
-      alert("Incorrect password!");
-    }
-  }
-</script>
-
-<!-- Social Media Icons -->
   <div style="text-align: center; margin-top: 20px;">
     <a href="https://www.linkedin.com/in/inasimti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
       <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon">
