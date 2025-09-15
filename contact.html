@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Inas Imthiyas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">About</a>
+    <a href="education.html">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="My Projects.html">My Projects</a> 
+  </nav>
+<div class="container">
+  <h1 class="page-title">Get In Touch</h1>
+
+  <div class="contact-container">
+    <div class="contact-card">
+      <div class="contact-info">
+        <!-- Email -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <a href="mailto:inasimti9@gmail.com">inasimti9@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Phone</h3>
+            <p>+94 76 328 9476</p>
+          </div>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-details">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/inasimti" target="_blank">linkedin.com/in/inasimti</a>
+          </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/inas_imti" target="_blank">@inas_imti</a>
+          </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Facebook</h3>
+            <a href="https://www.facebook.com/share/1Ec4FhveFs/" target="_blank">Facebook Profile</a>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Location</h3>
+            <p>Sri Lanka</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="availability">
+        <p><i class="fas fa-clock"></i> I'm available for freelance projects and new opportunities</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons Footer -->
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/inasimti">
+      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon">
+    </a>
+    <img src="./Files/git.jpg" alt="GitHub" class="icon">
+    <a href="https://www.facebook.com/share/1Ec4FhveFs/">
+      <img src="./Files/facebook.webp" alt="Facebook" class="icon">
+    </a>
+    <a href="https://www.instagram.com/inas_imti">
+      <img src="./Files/Insta.png" alt="Instagram" class="icon">
+    </a>
+    <a href="mailto:inasimti9@gmail.com">
+      <img src="./Files/Mail.webp" alt="Email" class="icon">
+    </a>
+  </div>
+</div>
+ <script>
+  // Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.createElement('button');
+  menuToggle.innerHTML = '☰';
+  menuToggle.classList.add('menu-toggle');
+  menuToggle.addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('responsive');
+  });
+  
+  // Add toggle button to navigation
+  document.querySelector('nav').appendChild(menuToggle);
+});
+</script>
+
+
+</body>
+</html>

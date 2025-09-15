@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects - Inas Imthiyas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html">Contact</a>
+    <a href="My Projects.html" class="active">My Projects</a>
+    <a href="./My Gallery.html" onclick="accessGallery()">My Gallery 🔒</a>
+  </nav>
+<div class="container">
+  <h1 class="page-title">My Projects</h1>
+
+  <div class="projects-container">
+    <p class="intro-text">
+      This section showcases some of the graphic design, web development, and multimedia projects I've worked on. 
+      Browse through my creative and professional works below.
+    </p>
+
+    <div class="category-filter">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
+      <button class="filter-btn" data-filter="video">Video Editing</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Graphic Design Project 1 -->
+      <div class="project-card" data-category="graphic">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="Graphic Design Project">
+        <div class="project-body">
+          <h5 class="project-title">Brand Identity Design</h5>
+          <p class="project-text">Complete brand identity package including logo, business cards, and stationery for a local business.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+
+      <!-- Graphic Design Project 2 -->
+      <div class="project-card" data-category="graphic">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="Social Media Campaign">
+        <div class="project-body">
+          <h5 class="project-title">Social Media Campaign</h5>
+          <p class="project-text">Series of social media graphics and banners for a product launch campaign.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+
+      <!-- Web Development Project -->
+      <div class="project-card" data-category="web">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="Portfolio Website">
+        <div class="project-body">
+          <h5 class="project-title">Portfolio Website</h5>
+          <p class="project-text">Responsive personal portfolio website built with HTML, CSS, and JavaScript.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+
+      <!-- Video Editing Project -->
+      <div class="project-card" data-category="video">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="Promotional Video">
+        <div class="project-body">
+          <h5 class="project-title">Promotional Video</h5>
+          <p class="project-text">Edited promotional video for a client including color grading and motion graphics.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+
+      <!-- Graphic Design Project 3 -->
+      <div class="project-card" data-category="graphic">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="Wedding Invitation">
+        <div class="project-body">
+          <h5 class="project-title">Wedding Invitation Suite</h5>
+          <p class="project-text">Elegant wedding invitation design with matching RSVP cards and program.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+
+      <!-- Web Development Project 2 -->
+      <div class="project-card" data-category="web">
+        <img src="./Files/adnsign.jpg" class="project-img" alt="E-commerce Website">
+        <div class="project-body">
+          <h5 class="project-title">E-commerce Store</h5>
+          <p class="project-text">Fully functional e-commerce website with product filtering and cart functionality.</p>
+          <a href="#" class="btn project-btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/inasimti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon">
+    </a>
+    <img src="./Files/git.jpg" alt="GitHub" class="icon">
+    <a href="https://www.facebook.com/share/1Ec4FhveFs/">
+      <img src="./Files/facebook.webp" alt="Facebook" class="icon">
+    </a>
+    <a href="https://www.instagram.com/inas_imti?igsh=Y3J3MW9ueDBwdHFh">
+      <img src="./Files/Insta.png" alt="Instagram" class="icon">
+    </a>
+    <a href="mailto:inasimti9@gmail.com">
+      <img src="./Files/Mail.webp" alt="Mail" class="icon">
+    </a>
+  </div>
+
+  <script>
+    function accessGallery() {
+      const password = prompt("Enter password to open My Gallery:");
+      if (password === "zi07") {
+        window.location.href = "./My Gallery.html";
+      } else {
+        alert("Wrong password!");
+      }
+    }
+
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          const filter = button.getAttribute('data-filter');
+          
+          projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</div>
+<script>
+  // Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.createElement('button');
+  menuToggle.innerHTML = '☰';
+  menuToggle.classList.add('menu-toggle');
+  menuToggle.addEventListener('click', function() {
+    document.querySelector('nav').classList.toggle('responsive');
+  });
+  
+  // Add toggle button to navigation
+  document.querySelector('nav').appendChild(menuToggle);
+});
+</script>
+</body>
+</html>
