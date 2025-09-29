@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<div class="intro" id="intro">
+  <canvas id="matrix"></canvas>
+  <div class="intro-content">
+    <img src="./Files/my pic.jpg" alt="Inas Imthiyas" class="intro-pic">
+    <h1 class="intro-text">INAS IMTHIYAS</h1>
+    <p class="cyber-words" id="cyberWords"></p>
+    <button class="skip-btn" onclick="skipIntro()">Skip Intro →</button>
+  </div>
+</div>
+
   <nav>
     <a href="index.html" class="active">Home</a>
     <a href="education.html" >Education</a>
@@ -74,6 +84,92 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add toggle button to navigation
   document.querySelector('nav').appendChild(menuToggle);
 });
+</script>
+
+
+<script>
+/* Matrix Hacking Effect */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01#@$%&<>?/\\|█▓▒░";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for (let x = 0; x < columns; x++) drops[x] = 1;
+
+function draw() {
+  ctx.fillStyle = "rgba(26, 0, 0, 0.1)"; // dark maroon fade
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.fillStyle = "#ffcc00"; // yellow code
+  ctx.font = fontSize + "px monospace";
+  
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+    drops[i]++;
+  }
+}
+setInterval(draw, 33);
+
+window.addEventListener("resize", () => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+});
+
+/* Typing Effect Cyber Words */
+const phrases = ["[ LOADING... ]", "[ ACCESS GRANTED ]", "[ SYSTEM READY ]"];
+let i = 0, j = 0;
+let currentPhrase = [];
+let isDeleting = false, isEnd = false;
+
+function loop() {
+  isEnd = false;
+  const cyberWords = document.getElementById("cyberWords");
+
+  cyberWords.innerHTML = currentPhrase.join("");
+
+  if (i < phrases.length) {
+    if (!isDeleting && j <= phrases[i].length) {
+      currentPhrase.push(phrases[i][j]);
+      j++;
+    }
+
+    if(isDeleting && j <= phrases[i].length) {
+      currentPhrase.pop(phrases[i][j]);
+      j--;
+    }
+
+    if (j == phrases[i].length) {
+      isEnd = true;
+      isDeleting = true;
+    }
+
+    if (isDeleting && j === 0) {
+      currentPhrase = [];
+      isDeleting = false;
+      i++;
+      if (i === phrases.length) {
+        i = 0;
+      }
+    }
+  }
+  const speed = isEnd ? 1200 : isDeleting ? 50 : 100;
+  setTimeout(loop, speed);
+}
+loop();
+
+/* Skip Intro Function */
+function skipIntro() {
+  document.getElementById("intro").style.display = "none";
+}
 </script>
 </body>
 </html>
