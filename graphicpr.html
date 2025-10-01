@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design Projects - Inas Imthiyas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
+  <link rel="manifest" href="./Files/site.webmanifest">
+
+  <style>
+    /* Professional 3D Image Grid for Square Images */
+    .interactive-grid-3d {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        transform-style: preserve-3d;
+        perspective: 1500px;
+        padding: 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .interactive-grid-item {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        border-radius: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transform-style: preserve-3d;
+        transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        height: 420px;
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    /* 3D Depth Effect */
+    .interactive-grid-item::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        background: linear-gradient(45deg, #c1eb07, #ffd700, #f8c291, #c1eb07);
+        border-radius: 28px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        filter: blur(10px);
+    }
+
+    .interactive-grid-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.15), transparent 60%);
+        opacity: 0;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .interactive-grid-item:hover::before {
+        opacity: 0.6;
+    }
+
+    .interactive-grid-item:hover::after {
+        opacity: 1;
+    }
+
+    /* Front and Back Faces */
+    .interactive-grid-item .front,
+    .interactive-grid-item .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .interactive-grid-item .front {
+        transform: rotateY(0deg);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        z-index: 2;
+    }
+
+    /* Square Image Optimization */
+    .interactive-grid-item .front img {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: brightness(0.95) contrast(1.1);
+        box-shadow: 
+            0 15px 35px rgba(0, 0, 0, 0.3),
+            0 5px 15px rgba(193, 235, 7, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .interactive-grid-item .front h3 {
+        color: #c1eb07;
+        font-size: 1.5rem;
+        margin: 15px 0 8px 0;
+        text-align: center;
+        text-shadow: 0 0 20px rgba(193, 235, 7, 0.5);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transform: translateZ(30px);
+    }
+
+    .interactive-grid-item .front p {
+        color: #f8c291;
+        font-size: 1rem;
+        text-align: center;
+        opacity: 0.9;
+        text-shadow: 0 0 10px rgba(248, 194, 145, 0.3);
+        transform: translateZ(20px);
+    }
+
+    /* Back Side Styling */
+    .interactive-grid-item .back {
+        transform: rotateY(180deg);
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.2), rgba(255, 215, 0, 0.15));
+        border: 1px solid rgba(193, 235, 7, 0.4);
+        z-index: 1;
+        box-shadow: inset 0 0 50px rgba(193, 235, 7, 0.1);
+    }
+
+    .interactive-grid-item .back h3 {
+        color: #ffd700;
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        font-weight: 700;
+        transform: translateZ(40px);
+    }
+
+    .interactive-grid-item .back p {
+        color: #f7f8f5;
+        text-align: center;
+        line-height: 1.7;
+        font-size: 1.05rem;
+        margin-bottom: 25px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        transform: translateZ(25px);
+    }
+
+    /* Hover Effects */
+    .interactive-grid-item:hover .front {
+        transform: rotateY(-180deg);
+    }
+
+    .interactive-grid-item:hover .back {
+        transform: rotateY(0deg);
+    }
+
+    .interactive-grid-item:hover {
+        transform: 
+            translateY(-20px) 
+            translateZ(60px) 
+            rotateX(8deg) 
+            rotateY(8deg) 
+            scale(1.02);
+        box-shadow: 
+            0 35px 70px rgba(0, 0, 0, 0.6),
+            0 0 60px rgba(193, 235, 7, 0.5),
+            0 0 0 2px rgba(193, 235, 7, 0.3),
+            inset 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+
+    .interactive-grid-item:hover .front img {
+        transform: 
+            scale(1.08) 
+            translateZ(45px) 
+            rotateZ(2deg);
+        filter: brightness(1.2) contrast(1.2) saturate(1.1);
+        box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(193, 235, 7, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Enhanced Floating Animation */
+    @keyframes professionalFloat {
+        0%, 100% { 
+            transform: 
+                translateY(0) 
+                rotateX(0) 
+                rotateY(0)
+                scale(1);
+        }
+        25% { 
+            transform: 
+                translateY(-12px) 
+                rotateX(3deg) 
+                rotateY(2deg)
+                scale(1.01);
+        }
+        50% { 
+            transform: 
+                translateY(-6px) 
+                rotateX(-2deg) 
+                rotateY(-1deg)
+                scale(1.005);
+        }
+        75% { 
+            transform: 
+                translateY(-8px) 
+                rotateX(1deg) 
+                rotateY(3deg)
+                scale(1.008);
+        }
+    }
+
+    .interactive-grid-item {
+        animation: professionalFloat 8s ease-in-out infinite;
+    }
+
+    .interactive-grid-item:nth-child(2) { animation-delay: 0.7s; }
+    .interactive-grid-item:nth-child(3) { animation-delay: 1.4s; }
+    .interactive-grid-item:nth-child(4) { animation-delay: 2.1s; }
+    .interactive-grid-item:nth-child(5) { animation-delay: 2.8s; }
+
+    /* Back Content Styling */
+    .back-content {
+        transform: translateZ(35px);
+        text-align: center;
+        width: 100%;
+    }
+
+    .project-details {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .project-details .tech {
+        display: inline-block;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(193, 235, 7, 0.1));
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: #c1eb07;
+        border: 1px solid rgba(193, 235, 7, 0.4);
+        text-shadow: 0 0 10px rgba(193, 235, 7, 0.3);
+        transition: all 0.3s ease;
+        transform: translateZ(20px);
+    }
+
+    .project-details .tech:hover {
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.3), rgba(255, 215, 0, 0.2));
+        transform: translateZ(25px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(193, 235, 7, 0.3);
+    }
+
+    /* Additional 3D Effects */
+    .interactive-grid-item .front::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        border-radius: 25px;
+    }
+
+    .interactive-grid-item:hover .front::before {
+        opacity: 1;
+    }
+
+    /* Page Title Enhancement */
+    .page-title-3d {
+        text-align: center;
+        margin: 40px 0 20px 0;
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 
+            0 0 20px rgba(193, 235, 7, 0.8),
+            0 0 40px rgba(193, 235, 7, 0.4);
+        transform: perspective(500px) rotateX(10deg);
+        animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+        0% { 
+            transform: perspective(500px) rotateX(10deg) translateY(0);
+            text-shadow: 0 0 20px rgba(193, 235, 7, 0.8);
+        }
+        100% { 
+            transform: perspective(500px) rotateX(15deg) translateY(-5px);
+            text-shadow: 0 0 30px rgba(193, 235, 7, 1);
+        }
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(15px);
+    }
+
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        width: auto;
+        height: auto;
+        transform: scale(0.8) translateZ(0);
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 
+            0 25px 80px rgba(0, 0, 0, 0.8),
+            0 0 0 1px rgba(255, 255, 255, 0.1),
+            0 0 60px rgba(193, 235, 7, 0.4);
+    }
+
+    .modal-overlay.active .modal-content {
+        transform: scale(1) translateZ(0);
+    }
+
+    .modal-image {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
+        border-radius: 20px;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-close:hover {
+        background: rgba(193, 235, 7, 0.8);
+        transform: scale(1.1) rotate(90deg);
+    }
+
+    .modal-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-nav:hover {
+        background: rgba(193, 235, 7, 0.8);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .modal-prev {
+        left: 20px;
+    }
+
+    .modal-next {
+        right: 20px;
+    }
+
+    .modal-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: white;
+        padding: 30px 20px 20px;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
+    }
+
+    .modal-content:hover .modal-info {
+        transform: translateY(0);
+    }
+
+    .modal-info h3 {
+        color: #c1eb07;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        text-shadow: 0 0 15px rgba(193, 235, 7, 0.7);
+    }
+
+    .modal-info p {
+        color: #f8c291;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .interactive-grid-3d {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 25px;
+        }
+        
+        .interactive-grid-item {
+            height: 400px;
+        }
+        
+        .interactive-grid-item .front img {
+            width: 260px;
+            height: 260px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .interactive-grid-3d {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .interactive-grid-item {
+            height: 380px;
+        }
+        
+        .interactive-grid-item .front img {
+            width: 240px;
+            height: 240px;
+        }
+        
+        .interactive-grid-item:hover {
+            transform: translateY(-12px) translateZ(40px);
+        }
+
+        .modal-nav {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .interactive-grid-3d {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 15px;
+        }
+        
+        .interactive-grid-item {
+            height: 360px;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        
+        .interactive-grid-item .front img {
+            width: 220px;
+            height: 220px;
+        }
+        
+        .interactive-grid-item .front h3 {
+            font-size: 1.3rem;
+        }
+        
+        .interactive-grid-item .back h3 {
+            font-size: 1.4rem;
+        }
+
+        .modal-nav {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+        }
+
+        .modal-info h3 {
+            font-size: 1.4rem;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading Animation -->
+<div class="loader-overlay" id="pageLoader" aria-live="polite" aria-label="Loading experience">
+  <!-- Connection indicator -->
+  <div class="connection-indicator" id="connectionIndicator">
+    <div class="connection-dot" id="connectionDot"></div>
+    <span id="connectionText">Detecting connection...</span>
+  </div>
+  
+  <!-- Hacking lines -->
+  <div class="hack-line"></div>
+  <div class="hack-line"></div>
+  <div class="hack-line"></div>
+  <div class="hack-line"></div>
+  <div class="hack-line"></div>
+  
+  <!-- Interactive background -->
+  <div class="interactive-bg" id="interactiveBg"></div>
+  
+  <!-- Loader bars -->
+  <div class="loader-bars">
+    <div></div><div></div><div></div><div></div><div></div>
+  </div>
+  
+  <!-- Progress bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Loading Experience text -->
+  <div class="loader-text">Loading Experience</div>
+  
+  <!-- Resume-style words below -->
+  <div class="resume-words">Creative &nbsp; | &nbsp; Reliable &nbsp; | &nbsp; Passionate &nbsp; | &nbsp; Professional</div>
+  
+  <!-- Loading tips -->
+  <div class="loading-tips" id="loadingTips"></div>
+  
+  <!-- Loading percentage -->
+  <div class="loading-percentage" id="loadingPercentage">0%</div>
+  
+  <!-- Loading stats -->
+  <div class="loading-stats" id="loadingStats"></div>
+</div>
+
+<!-- 3D Background Elements -->
+<div class="bg-3d-elements" id="bg3dElements"></div>
+
+<!-- Modal for fullscreen image view -->
+<div class="modal-overlay" id="imageModal">
+  <button class="modal-close" id="modalClose">&times;</button>
+  <button class="modal-nav modal-prev" id="modalPrev">❮</button>
+  <button class="modal-nav modal-next" id="modalNext">❯</button>
+  <div class="modal-content">
+    <img class="modal-image" id="modalImage" src="" alt="">
+    <div class="modal-info">
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDescription">Project description goes here</p>
+      <div class="project-details" id="modalTech"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="experience.html">Experience</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+  <a href="My Projects.html" class="active">My Projects</a> 
+</nav>
+
+<!-- Main Content -->
+<div class="container container-3d">
+    <h1 class="page-title page-title-3d floating-3d">Graphic Design Projects</h1>
+    
+    <div class="interactive-grid-3d">
+        <!-- Project 1 -->
+        <div class="interactive-grid-item" data-index="0">
+            <div class="front">
+                <img src="./gd/1.jpg" alt="Under 19 Campaign">
+                <h3>Under 19 Campaign</h3>
+                <p>Youth Engagement Design</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Youth Campaign Design</h3>
+                    <p>Social media campaign targeting youth audience with vibrant colors, modern typography, and engaging visuals. Designed to increase brand awareness and engagement.</p>
+                    <div class="project-details">
+                        <span class="tech">Photoshop</span>
+                        <span class="tech">Illustrator</span>
+                        <span class="tech">Social Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="interactive-grid-item" data-index="1">
+            <div class="front">
+                <img src="./gd/2.jpg" alt="Brand Identity Design">
+                <h3>Brand Identity</h3>
+                <p>Corporate Branding Package</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Complete Brand Identity</h3>
+                    <p>Comprehensive brand identity package including logo design, color palette, typography system, and brand guidelines. Created for modern corporate identity.</p>
+                    <div class="project-details">
+                        <span class="tech">Illustrator</span>
+                        <span class="tech">InDesign</span>
+                        <span class="tech">Branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="interactive-grid-item" data-index="2">
+            <div class="front">
+                <img src="./gd/3.jpg" alt="Event Poster Design">
+                <h3>Event Poster</h3>
+                <p>Marketing Campaign Design</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Event Marketing Poster</h3>
+                    <p>Eye-catching poster design for corporate event with bold typography, engaging visuals, and clear call-to-action. Designed to maximize event attendance.</p>
+                    <div class="project-details">
+                        <span class="tech">Photoshop</span>
+                        <span class="tech">After Effects</span>
+                        <span class="tech">Print Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="interactive-grid-item" data-index="3">
+            <div class="front">
+                <img src="./gd/4.jpg" alt="Social Media Graphics">
+                <h3>Social Media Kit</h3>
+                <p>Content Creation Package</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Social Media Graphics</h3>
+                    <p>Complete social media graphics package including posts, stories, banners, and templates. Designed for consistent brand presence across platforms.</p>
+                    <div class="project-details">
+                        <span class="tech">Photoshop</span>
+                        <span class="tech">Canva</span>
+                        <span class="tech">Social Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="interactive-grid-item" data-index="4">
+            <div class="front">
+                <img src="./gd/5.jpg" alt="Product Packaging">
+                <h3>Product Packaging</h3>
+                <p>Retail Design Solution</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Packaging Design</h3>
+                    <p>Innovative product packaging design that stands out on shelves while maintaining brand consistency. Focus on consumer appeal and functionality.</p>
+                    <div class="project-details">
+                        <span class="tech">Illustrator</span>
+                        <span class="tech">3D Mockup</span>
+                        <span class="tech">Print Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="interactive-grid-item" data-index="5">
+            <div class="front">
+                <img src="./gd/6.jpg" alt="Web Banner Design">
+                <h3>Web Banners</h3>
+                <p>Digital Advertising</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Digital Ad Campaign</h3>
+                    <p>Series of web banners and digital ads designed for online campaigns. Optimized for various platforms with strong call-to-action elements.</p>
+                    <div class="project-details">
+                        <span class="tech">Photoshop</span>
+                        <span class="tech">Google Web Designer</span>
+                        <span class="tech">Digital Ads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  // Enhanced loading functionality with real-time network detection
+  async function showPage() {
+    const loader = document.getElementById('pageLoader');
+    const percentage = document.getElementById('loadingPercentage');
+    const progressBar = document.getElementById('progressBar');
+    const loadingTips = document.getElementById('loadingTips');
+    const loadingStats = document.getElementById('loadingStats');
+    const interactiveBg = document.getElementById('interactiveBg');
+    const connectionIndicator = document.getElementById('connectionIndicator');
+    const connectionDot = document.getElementById('connectionDot');
+    const connectionText = document.getElementById('connectionText');
+    
+    // Create 3D background elements
+    function create3DBgElements() {
+      const bgContainer = document.getElementById('bg3dElements');
+      for (let i = 0; i < 8; i++) {
+        const element = document.createElement('div');
+        element.classList.add('bg-3d-element');
+        element.style.left = `${Math.random() * 90}%`;
+        element.style.top = `${Math.random() * 90}%`;
+        element.style.animationDelay = `${Math.random() * 15}s`;
+        element.style.width = `${20 + Math.random() * 40}px`;
+        element.style.height = `${20 + Math.random() * 40}px`;
+        bgContainer.appendChild(element);
+      }
+    }
+    
+    // Connection speed detection
+    let connectionSpeed = 'average'; // default
+    let baseDuration = 3000; // base duration in ms
+    let actualLoadTime = 0;
+    
+    // Detect connection speed
+    async function detectConnectionSpeed() {
+      const startTime = Date.now();
+      
+      try {
+        // Try to fetch a small file to measure speed
+        const response = await fetch('https://httpbin.org/bytes/1024?seed=' + Date.now(), {
+          method: 'HEAD',
+          cache: 'no-cache'
+        });
+        
+        const endTime = Date.now();
+        const duration = endTime - startTime;
+        
+        if (duration < 500) {
+          connectionSpeed = 'fast';
+          baseDuration = 2000;
+          connectionDot.className = 'connection-dot fast';
+          connectionText.textContent = 'Fast Connection';
+        } else if (duration < 1500) {
+          connectionSpeed = 'average';
+          baseDuration = 3500;
+          connectionDot.className = 'connection-dot average';
+          connectionText.textContent = 'Average Connection';
+        } else {
+          connectionSpeed = 'slow';
+          baseDuration = 6000;
+          connectionDot.className = 'connection-dot slow';
+          connectionText.textContent = 'Slow Connection';
+        }
+        
+        // Store actual network measurement
+        actualLoadTime = duration;
+        
+      } catch (error) {
+        // Fallback to navigator.connection if available
+        if (navigator.connection) {
+          const connection = navigator.connection;
+          if (connection.downlink > 5) {
+            connectionSpeed = 'fast';
+            baseDuration = 2000;
+            connectionDot.className = 'connection-dot fast';
+            connectionText.textContent = 'Fast Connection';
+          } else if (connection.downlink > 1) {
+            connectionSpeed = 'average';
+            baseDuration = 3500;
+            connectionDot.className = 'connection-dot average';
+            connectionText.textContent = 'Average Connection';
+          } else {
+            connectionSpeed = 'slow';
+            baseDuration = 6000;
+            connectionDot.className = 'connection-dot slow';
+            connectionText.textContent = 'Slow Connection';
+          }
+        } else {
+          // Default to average if detection fails
+          connectionSpeed = 'average';
+          baseDuration = 3500;
+          connectionDot.className = 'connection-dot average';
+          connectionText.textContent = 'Standard Connection';
+        }
+      }
+    }
+    
+    // Loading tips array
+    const tips = {
+      fast: [
+        "Loading graphic design portfolio...",
+        "Optimizing 3D effects...",
+        "Preparing creative assets...",
+        "Almost ready...",
+        "Portfolio loaded successfully!"
+      ],
+      average: [
+        "Loading design projects...",
+        "Preparing 3D animations...",
+        "Optimizing image quality...",
+        "Setting up interactive elements...",
+        "Almost there...",
+        "Finalizing portfolio display..."
+      ],
+      slow: [
+        "Loading creative content...",
+        "Preparing design showcase...",
+        "Optimizing for connection...",
+        "Loading high-quality images...",
+        "Setting up 3D grid...",
+        "Portfolio almost ready..."
+      ]
+    };
+    
+    // Create interactive particles
+    function createParticles() {
+      for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('interactive-particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 8}s`;
+        interactiveBg.appendChild(particle);
+      }
+    }
+    
+    createParticles();
+    create3DBgElements();
+    
+    // Simulate loading progress based on connection speed
+    let progress = 0;
+    let currentTip = 0;
+    const startTime = Date.now();
+    let estimatedTotalTime = baseDuration;
+    
+    // Calculate progress increment based on connection speed
+    function getProgressIncrement() {
+      switch(connectionSpeed) {
+        case 'fast': return 20 + Math.random() * 10;
+        case 'average': return 10 + Math.random() * 8;
+        case 'slow': return 6 + Math.random() * 6;
+        default: return 10 + Math.random() * 8;
+      }
+    }
+    
+    // Calculate interval based on connection speed
+    function getProgressInterval() {
+      switch(connectionSpeed) {
+        case 'fast': return 120;
+        case 'average': return 200;
+        case 'slow': return 350;
+        default: return 200;
+      }
+    }
+    
+    // Update loading tip
+    function updateTip() {
+      const currentTips = tips[connectionSpeed] || tips.average;
+      loadingTips.textContent = currentTips[currentTip];
+      currentTip = (currentTip + 1) % currentTips.length;
+    }
+    
+    // Update loading stats with real-time estimation
+    function updateStats() {
+      const elapsedTime = Date.now() - startTime;
+      const elapsedSeconds = (elapsedTime / 1000).toFixed(1);
+      
+      // Calculate estimated time remaining based on current progress
+      if (progress > 5) {
+        const estimatedTotal = (elapsedTime / progress) * 100;
+        const remainingTime = Math.max(0, (estimatedTotal - elapsedTime) / 1000);
+        
+        loadingStats.textContent = `${connectionSpeed.toUpperCase()} • ${elapsedSeconds}s • ~${remainingTime.toFixed(1)}s left`;
+      } else {
+        loadingStats.textContent = `${connectionSpeed.toUpperCase()} • ${elapsedSeconds}s • Detecting...`;
+      }
+    }
+    
+    // Initialize connection detection and start loading
+    await detectConnectionSpeed();
+    updateTip();
+    
+    const tipInterval = setInterval(updateTip, 1800);
+    const statsInterval = setInterval(updateStats, 300);
+    
+    const progressInterval = setInterval(() => {
+      const increment = getProgressIncrement();
+      progress += increment;
+      
+      // Adjust speed based on network conditions
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(progressInterval);
+        clearInterval(tipInterval);
+        clearInterval(statsInterval);
+        
+        // Calculate actual load performance
+        const totalTime = Date.now() - startTime;
+        console.log(`Portfolio loaded in ${totalTime}ms (${connectionSpeed} connection)`);
+        
+        // Hide loader immediately when done
+        hideLoader();
+      }
+      
+      percentage.textContent = Math.min(progress, 100).toFixed(0) + '%';
+      progressBar.style.width = progress + '%';
+    }, getProgressInterval());
+    
+    // Ensure content is ready
+    if (document.readyState === 'complete') {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader);
+    }
+    
+    function hideLoader() {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        setTimeout(() => { 
+          loader.style.display = 'none';
+        }, 800);
+      }, 500);
+    }
+    
+    // Fallback in case loader doesn't hide
+    setTimeout(() => {
+      if (loader && loader.style.display !== 'none') {
+        loader.style.display = 'none';
+        clearInterval(progressInterval);
+        clearInterval(tipInterval);
+        clearInterval(statsInterval);
+      }
+    }, 15000); // Maximum 15 seconds
+  }
+
+  // Modal functionality
+  function initModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalTech = document.getElementById('modalTech');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    
+    const projects = document.querySelectorAll('.interactive-grid-item');
+    let currentIndex = 0;
+    
+    // Open modal with project details
+    function openModal(index) {
+      const project = projects[index];
+      const front = project.querySelector('.front');
+      const back = project.querySelector('.back');
+      
+      // Get image source
+      const imgSrc = front.querySelector('img').src;
+      
+      // Get project title from front
+      const title = front.querySelector('h3').textContent;
+      
+      // Get project description from back
+      const description = back.querySelector('p').textContent;
+      
+      // Get tech stack from back
+      const techElements = back.querySelectorAll('.tech');
+      const techStack = Array.from(techElements).map(tech => tech.textContent);
+      
+      // Update modal content
+      modalImage.src = imgSrc;
+      modalImage.alt = title;
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      
+      // Update tech stack
+      modalTech.innerHTML = '';
+      techStack.forEach(tech => {
+        const techSpan = document.createElement('span');
+        techSpan.className = 'tech';
+        techSpan.textContent = tech;
+        modalTech.appendChild(techSpan);
+      });
+      
+      // Update current index
+      currentIndex = index;
+      
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+    
+    // Close modal
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Navigate to next project
+    function nextProject() {
+      currentIndex = (currentIndex + 1) % projects.length;
+      openModal(currentIndex);
+    }
+    
+    // Navigate to previous project
+    function prevProject() {
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      openModal(currentIndex);
+    }
+    
+    // Add click event to each project
+    projects.forEach((project, index) => {
+      project.addEventListener('click', (e) => {
+        // Don't open modal if clicking on the back side
+        if (!e.target.closest('.back')) {
+          openModal(index);
+        }
+      });
+    });
+    
+    // Modal controls
+    modalClose.addEventListener('click', closeModal);
+    modalPrev.addEventListener('click', prevProject);
+    modalNext.addEventListener('click', nextProject);
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('active')) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          prevProject();
+          break;
+        case 'ArrowRight':
+          nextProject();
+          break;
+      }
+    });
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function() {
+    showPage();
+    initModal();
+    
+    // Mobile menu toggle functionality
+    const menuToggle = document.createElement('button');
+    menuToggle.innerHTML = '☰';
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.addEventListener('click', function() {
+      document.querySelector('nav').classList.toggle('responsive');
+    });
+    
+    // Add toggle button to navigation
+    document.querySelector('nav').appendChild(menuToggle);
+  });
+</script>
+</body>
+</html>
