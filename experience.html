@@ -5,312 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experience - Inas Imthiyas</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
-
-
-      <style>
-    /* Loading animation styles - added to existing styles */
-    :root {
-      --primary-color: #ff0000;
-      --secondary-color: #ff0000;
-      --bg-color-1: #80000021;
-      --bg-color-2: #b2222236;
-      --text-color: #ffffff;
-    }
-
-    .loader-overlay {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(6px);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      z-index:9999;
-      overflow: hidden;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
-      visibility: visible;
-    }
-
-    /* Connection indicator */
-    .connection-indicator {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px;
-      color: #ff0000;
-    }
-
-    .connection-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ff0000;
-      animation: pulse 2s infinite;
-    }
-
-    .connection-dot.fast { background: #00ff00; }
-    .connection-dot.average { background: #ff0000; }
-    .connection-dot.slow { background: #ff4444; }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    /* Hacking horizontal lines */
-    .hack-line {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: var(--primary-color);
-      opacity: 0.15;
-      animation: moveLine linear infinite;
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .hack-line:nth-child(1){ animation-duration: 3s; opacity:0.2; top:10%; }
-    .hack-line:nth-child(2){ animation-duration: 4s; opacity:0.25; top:25%; }
-    .hack-line:nth-child(3){ animation-duration: 5s; opacity:0.15; top:40%; }
-    .hack-line:nth-child(4){ animation-duration: 3.5s; opacity:0.2; top:55%; }
-    .hack-line:nth-child(5){ animation-duration: 4.5s; opacity:0.18; top:70%; }
-
-    @keyframes moveLine {
-      0% { transform: translateX(-120%); }
-      100% { transform: translateX(120%); }
-    }
-
-    /* Loader bars with neon glow */
-    .loader-bars {
-      display:flex;
-      gap:10px;
-      margin-bottom: 20px;
-    }
-    .loader-bars div {
-      width:15px;
-      height:50px;
-      background:var(--primary-color);
-      animation:bounce 1s infinite ease-in-out;
-      box-shadow: 0 0 8px var(--primary-color), 0 0 15px var(--primary-color);
-      will-change: transform;
-      transform: translateZ(0);
-    }
-    .loader-bars div:nth-child(2){animation-delay:0.2s;}
-    .loader-bars div:nth-child(3){animation-delay:0.4s;}
-    .loader-bars div:nth-child(4){animation-delay:0.6s;}
-    .loader-bars div:nth-child(5){animation-delay:0.8s;}
-
-    @keyframes bounce{
-      0%,100%{ 
-        transform: scaleY(0.3); 
-      }
-      50%{ 
-        transform: scaleY(1); 
-        background: var(--secondary-color);
-      }
-    }
-
-    /* Progress bar */
-    .progress-container {
-      width: 300px;
-      height: 6px;
-      background: rgba(247, 0, 0, 0.2);
-      border-radius: 3px;
-      margin: 15px 0;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-      width: 0%;
-      border-radius: 3px;
-      transition: width 0.3s ease;
-      box-shadow: 0 0 8px var(--primary-color);
-    }
-
-    /* Loading Experience text with pulsing glow */
-    .loader-text {
-      color:var(--primary-color);
-      font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      text-align:center;
-      text-shadow: 0 0 5px var(--primary-color), 0 0 15px var(--primary-color);
-      animation: glowPulse 2s infinite;
-      margin-bottom: 10px;
-      position: relative;
-    }
-    @keyframes glowPulse {
-      0%,100%{ text-shadow: 0 0 5px var(--primary-color), 0 0 15px var(--primary-color); }
-      50%{ text-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--primary-color); }
-    }
-
-    /* Resume words below */
-    .resume-words {
-      color: #ff0000;
-      font-family: 'Arial', sans-serif;
-      font-size: 14px;
-      text-align: center;
-      letter-spacing: 1px;
-      opacity: 0;
-      animation: fadeWords 2s ease forwards;
-      animation-delay: 0.5s;
-      margin-bottom: 10px;
-    }
-    @keyframes fadeWords {
-      0% {opacity: 0; transform: translateY(10px);}
-      100%{opacity: 1; transform: translateY(0);}
-    }
-
-    /* Loading tips */
-    .loading-tips {
-      color: #ff0000;
-      font-family: 'Arial', sans-serif;
-      font-size: 13px;
-      text-align: center;
-      font-style: italic;
-      margin: 10px 0;
-      min-height: 20px;
-      opacity: 0.8;
-      max-width: 80%;
-      line-height: 1.4;
-    }
-
-    /* Loading percentage */
-    .loading-percentage {
-      color: #ff0000;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 12px;
-      margin-top: 5px;
-      opacity: 0.8;
-    }
-
-    /* Loading stats */
-    .loading-stats {
-      color: #ff0000;
-      font-family: 'Arial', sans-serif;
-      font-size: 11px;
-      margin-top: 5px;
-      opacity: 0.7;
-    }
-
-    /* Interactive background */
-    .interactive-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .interactive-particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--primary-color);
-      border-radius: 50%;
-      opacity: 0;
-      animation: particleFloat 8s linear infinite;
-    }
-
-    @keyframes particleFloat {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.7;
-      }
-      90% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* Responsive adjustments for mobile */
-    @media (max-width: 768px) {
-      .loader-text { font-size: 20px; }
-      .loader-bars div { width:10px; height:35px; }
-      .resume-words { font-size: 12px; }
-      .hack-line { height: 1px; }
-      .loading-percentage { font-size: 11px; }
-      .progress-container { width: 250px; }
-      .loading-tips { font-size: 12px; max-width: 90%; }
-      .connection-indicator { top: 15px; left: 15px; font-size: 11px; }
-    }
-
-    @media (max-width: 480px) {
-      .loader-text { font-size: 18px; }
-      .loader-bars { gap:6px; margin-bottom:15px; }
-      .loader-bars div { width:8px; height:30px; }
-      .resume-words { font-size: 11px; }
-      .hack-line { height: 1px; }
-      .loading-percentage { font-size: 10px; }
-      .progress-container { width: 200px; }
-      .loading-tips { font-size: 11px; }
-      .connection-indicator { top: 10px; left: 10px; font-size: 10px; }
-    }
-
-    /* Very small screens */
-    @media (max-width: 320px) {
-      .loader-text { font-size: 16px; }
-      .loader-bars div { width: 6px; height: 25px; }
-      .resume-words { font-size: 10px; }
-      .loading-percentage { font-size: 9px; }
-      .progress-container { width: 180px; }
-      .loading-tips { font-size: 10px; }
-    }
-
-    /* Landscape orientation support */
-    @media (max-height: 500px) and (orientation: landscape) {
-      .loader-overlay {
-        padding: 20px 0;
-      }
-      .loader-bars div { height: 30px; }
-      .loader-text { font-size: 18px; margin-bottom: 5px; }
-      .resume-words { font-size: 12px; }
-      .loading-percentage { font-size: 10px; margin-top: 5px; }
-      .progress-container { margin: 10px 0; }
-    }
-
-    /* Reduced motion support */
-    @media (prefers-reduced-motion: reduce) {
-      .hack-line, .interactive-particle {
-        animation: none;
-        display: none;
-      }
-      
-      .loader-bars div {
-        animation: bounce 2s infinite ease-in-out;
-      }
-      
-      .loader-text {
-        animation: glowPulse 4s infinite;
-      }
-    }
-
-    /* Dark/Light mode support */
-    @media (prefers-color-scheme: light) {
-      .loader-overlay {
-        background: rgba(0, 0, 0, 0.4);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
+<link rel="manifest" href="./Files/site.webmanifest">
 </head>
 <body>
 
-  <!-- Loading Animation -->
+<!-- Loading Animation -->
 <div class="loader-overlay" id="pageLoader" aria-live="polite" aria-label="Loading experience">
   <!-- Connection indicator -->
   <div class="connection-indicator" id="connectionIndicator">
@@ -354,99 +58,122 @@
   <div class="loading-stats" id="loadingStats"></div>
 </div>
 
+<!-- 3D Background Elements -->
+<div class="bg-3d-elements" id="bg3dElements"></div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="education.html">Education</a>
-    <a href="experience.html" class="active">Experience</a>
-    <a href="skills.html">Skills</a>
-    <a href="contact.html">Contact</a>
-    <a href="My Projects.html">My Projects</a>
-    <a href="./My Gallery.html" onclick="accessGallery()">My Gallery 🔒</a>
-  </nav>
-<div class="container">
-  <h1 class="page-title">Work Experience</h1>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="education.html">Education</a>
+  <a href="experience.html" class="active">Experience</a>
+  <a href="skills.html">Skills</a>
+  <a href="contact.html">Contact</a>
+  <a href="My Projects.html">My Projects</a>
+  <a href="./My Gallery.html" onclick="accessGallery()">My Gallery 🔒</a>
+</nav>
+
+<div class="container container-3d">
+  <h1 class="page-title-3d">Work Experience</h1>
 
   <div class="experience-container">
     <!-- Eclat Unites -->
-    <div class="experience-card">
-      <h2 class="experience-title">Eclat Unites Sri Lanka (Social Service Organization)</h2>
-      <p class="experience-period">Current</p>
-      <div class="experience-details">
+    <div class="experience-card experience-card-3d">
+      <h2 class="experience-title experience-title-3d">
+        Eclat Unites Sri Lanka (Social Service Organization)
+        <span class="role-badge-3d">Education Project Chairman</span>
+      </h2>
+      <p class="experience-period experience-period-3d">Current</p>
+      <div class="experience-details experience-details-3d">
         <ul>
           <li>Working as Education Project Chairman</li>
+          <li>Leading educational initiatives and community development programs</li>
+          <li>Coordinating volunteer activities and educational workshops</li>
         </ul>
       </div>
     </div>
 
     <!-- Amas Private Limited -->
-    <div class="experience-card">
-      <h2 class="experience-title">Amas Private Limited</h2>
-      <p class="experience-period">2020 - 2023</p>
-      <div class="experience-details">
+    <div class="experience-card experience-card-3d">
+      <h2 class="experience-title experience-title-3d">
+        Amas Private Limited
+        <span class="role-badge-3d">Data Entry Operator</span>
+      </h2>
+      <p class="experience-period experience-period-3d">2020 - 2023</p>
+      <div class="experience-details experience-details-3d">
         <ul>
           <li>Worked for 2 years as a Data Entry Operator</li>
+          <li>Managed large datasets with high accuracy and efficiency</li>
+          <li>Implemented data quality control procedures</li>
+          <li>Supported database management and reporting systems</li>
         </ul>
       </div>
     </div>
 
     <!-- Adnsign Advertisement -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <h2 class="experience-title">Adnsign Advertisement Company</h2>
-        <img src="./Files/adnsign.jpg" alt="Adnsigns" class="company-logo" />
+    <div class="experience-card experience-card-3d">
+      <div class="experience-header experience-header-3d">
+        <h2 class="experience-title experience-title-3d">
+          Adnsign Advertisement Company
+          <span class="role-badge-3d">Graphic Designer</span>
+        </h2>
+        <img src="./Files/adnsign.jpg" alt="Adnsigns" class="company-logo company-logo-3d" />
       </div>
-      <p class="experience-period">2024</p>
-      <div class="experience-details">
+      <p class="experience-period experience-period-3d">2024</p>
+      <div class="experience-details experience-details-3d">
         <ul>
           <li>Working as a Graphic Designer</li>
           <li>As a Graphic Designer, I was responsible for creating visually compelling designs aligned with brand identity and key messaging. My duties included digital and print materials: social media graphics, brochures, banners, logos, and marketing assets.</li>
         </ul>
         
-        <div class="responsibilities">
+        <div class="responsibilities responsibilities-3d">
           <h4><i class="fas fa-lightbulb"></i> Key Responsibilities:</h4>
           <ul>
             <li>Collaborated with marketing and content teams to deliver cohesive visuals</li>
             <li>Designed brand guidelines</li>
             <li>Managed multiple projects simultaneously under tight deadlines</li>
+            <li>Created visual concepts that communicated desired messages</li>
           </ul>
         </div>
         
-        <div class="achievements">
+        <div class="achievements achievements-3d">
           <h4><i class="fas fa-trophy"></i> Achievements:</h4>
           <ul>
             <li>Led the rebranding of <a href="https://www.google.com/maps/place/Adnsigns/@7.1980502,79.8446659,15z" target="_blank" style="color: #f8c291;">Adnsign Advertisement Company</a>, increasing brand recognition by 30%</li>
             <li>Designed ads that improved campaign engagement by 40%</li>
             <li>Streamlined workflows using templates and systems</li>
+            <li>Received client satisfaction rating of 95% for design projects</li>
           </ul>
         </div>
       </div>
     </div>
 
     <!-- Port City BPO -->
-    <div class="experience-card">
-      <div class="experience-header">
-        <h2 class="experience-title">Port City BPO</h2>
-        <img src="./Files/port city.jpg" alt="Port City BPO" class="company-logo" />
+    <div class="experience-card experience-card-3d">
+      <div class="experience-header experience-header-3d">
+        <h2 class="experience-title experience-title-3d">
+          Port City BPO
+          <span class="role-badge-3d">Payment Officer</span>
+        </h2>
+        <img src="./Files/port city.jpg" alt="Port City BPO" class="company-logo company-logo-3d" />
       </div>
-      <p class="experience-period">2025 – Present</p>
-      <div class="experience-details">
+      <p class="experience-period experience-period-3d">2025 – Present</p>
+      <div class="experience-details experience-details-3d">
         <ul>
           <li>Working as a Payment Officer</li>
           <li>Responsible for managing and processing financial transactions accurately and efficiently. Ensured timely payments, maintained records, and supported auditing and compliance.</li>
         </ul>
         
-        <div class="responsibilities">
+        <div class="responsibilities responsibilities-3d">
           <h4><i class="fas fa-tasks"></i> Key Duties:</h4>
           <ul>
             <li>Processed daily payments and monitored transactions</li>
             <li>Handled invoice verification and payment scheduling</li>
             <li>Coordinated with vendors and internal teams to resolve issues</li>
             <li>Ensured compliance with financial policies and procedures</li>
+            <li>Maintained accurate financial records and documentation</li>
           </ul>
         </div>
         
-        <a href="https://www.google.com/maps/place/Port+City+BPO+(Private)+Limited+Operations+Office/@6.8827147,79.8679922,15z" target="_blank" class="location-link">
+        <a href="https://www.google.com/maps/place/Port+City+BPO+(Private)+Limited+Operations+Office/@6.8827147,79.8679922,15z" target="_blank" class="location-link location-link-3d">
           <i class="fas fa-map-marker-alt"></i> View company location
         </a>
       </div>
@@ -456,37 +183,37 @@
   <!-- Social Media Icons -->
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/inasimti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon">
+      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon icon-3d">
     </a>
-    <img src="./Files/git.jpg" alt="GitHub" class="icon">
+    <img src="./Files/git.jpg" alt="GitHub" class="icon icon-3d">
     <a href="https://www.facebook.com/share/1Ec4FhveFs/">
-      <img src="./Files/facebook.webp" alt="Facebook" class="icon">
+      <img src="./Files/facebook.webp" alt="Facebook" class="icon icon-3d">
     </a>
     <a href="https://www.instagram.com/inas_imti?igsh=Y3J3MW9ueDBwdHFh">
-      <img src="./Files/Insta.png" alt="Instagram" class="icon">
+      <img src="./Files/Insta.png" alt="Instagram" class="icon icon-3d">
     </a>
     <a href="mailto:inasimti9@gmail.com">
-      <img src="./Files/Mail.webp" alt="Mail" class="icon">
+      <img src="./Files/Mail.webp" alt="Mail" class="icon icon-3d">
     </a>
   </div>
 </div>
-  <script>
-  // Mobile menu toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.createElement('button');
-  menuToggle.innerHTML = '☰';
-  menuToggle.classList.add('menu-toggle');
-  menuToggle.addEventListener('click', function() {
-    document.querySelector('nav').classList.toggle('responsive');
-  });
-  
-  // Add toggle button to navigation
-  document.querySelector('nav').appendChild(menuToggle);
-});
-</script>
-
 
 <script>
+  // Create 3D background elements
+  function create3DBgElements() {
+    const bgContainer = document.getElementById('bg3dElements');
+    for (let i = 0; i < 8; i++) {
+      const element = document.createElement('div');
+      element.classList.add('bg-3d-element');
+      element.style.left = `${Math.random() * 90}%`;
+      element.style.top = `${Math.random() * 90}%`;
+      element.style.animationDelay = `${Math.random() * 15}s`;
+      element.style.width = `${20 + Math.random() * 40}px`;
+      element.style.height = `${20 + Math.random() * 40}px`;
+      bgContainer.appendChild(element);
+    }
+  }
+
   // Enhanced loading functionality with real-time network detection
   async function showPage() {
     const loader = document.getElementById('pageLoader');
@@ -607,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     createParticles();
+    create3DBgElements();
     
     // Simulate loading progress based on connection speed
     let progress = 0;
@@ -718,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize
   document.addEventListener('DOMContentLoaded', showPage);
 
-  // Your existing mobile menu toggle functionality
+  // Mobile menu toggle functionality
   document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.createElement('button');
     menuToggle.innerHTML = '☰';
