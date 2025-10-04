@@ -8,54 +8,49 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
-  <link rel="manifest" href="./Files/site.webmanifest">
-
   <style>
-    /* Professional 3D Image Grid for Square Images */
+    /* Compact 3D Image Grid for Smaller Images */
     .interactive-grid-3d {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
         transform-style: preserve-3d;
-        perspective: 1500px;
-        padding: 30px;
+        perspective: 1200px;
+        padding: 20px;
         max-width: 1400px;
         margin: 0 auto;
     }
 
     .interactive-grid-item {
         background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-        border-radius: 25px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
         transform-style: preserve-3d;
-        transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         cursor: pointer;
         position: relative;
         overflow: hidden;
-        height: 420px;
+        height: 280px;
         box-shadow: 
-            0 15px 35px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            0 10px 25px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     }
 
     /* 3D Depth Effect */
     .interactive-grid-item::before {
         content: '';
         position: absolute;
-        top: -3px;
-        left: -3px;
-        right: -3px;
-        bottom: -3px;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
         background: linear-gradient(45deg, #c1eb07, #ffd700, #f8c291, #c1eb07);
-        border-radius: 28px;
+        border-radius: 20px;
         z-index: -1;
         opacity: 0;
-        transition: opacity 0.5s ease;
-        filter: blur(10px);
+        transition: opacity 0.4s ease;
+        filter: blur(8px);
     }
 
     .interactive-grid-item::after {
@@ -65,14 +60,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(193, 235, 7, 0.15), transparent 60%);
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.12), transparent 60%);
         opacity: 0;
-        transition: all 0.5s ease;
+        transition: all 0.4s ease;
         z-index: 1;
     }
 
     .interactive-grid-item:hover::before {
-        opacity: 0.6;
+        opacity: 0.5;
     }
 
     .interactive-grid-item:hover::after {
@@ -88,13 +83,13 @@
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
-        transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        border-radius: 25px;
+        transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border-radius: 18px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 30px;
+        padding: 20px;
         box-sizing: border-box;
     }
 
@@ -104,68 +99,72 @@
         z-index: 2;
     }
 
-    /* Square Image Optimization */
+    /* Compact Image Optimization */
     .interactive-grid-item .front img {
-        width: 280px;
-        height: 280px;
+        width: 140px;
+        height: 140px;
         object-fit: cover;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         filter: brightness(0.95) contrast(1.1);
         box-shadow: 
-            0 15px 35px rgba(0, 0, 0, 0.3),
-            0 5px 15px rgba(193, 235, 7, 0.2);
-        border: 2px solid rgba(255, 255, 255, 0.1);
+            0 8px 20px rgba(0, 0, 0, 0.25),
+            0 3px 8px rgba(193, 235, 7, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .interactive-grid-item .front h3 {
         color: #c1eb07;
-        font-size: 1.5rem;
-        margin: 15px 0 8px 0;
+        font-size: 1.1rem;
+        margin: 12px 0 6px 0;
         text-align: center;
-        text-shadow: 0 0 20px rgba(193, 235, 7, 0.5);
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        transform: translateZ(30px);
+        text-shadow: 0 0 12px rgba(193, 235, 7, 0.4);
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        transform: translateZ(20px);
+        line-height: 1.2;
     }
 
     .interactive-grid-item .front p {
         color: #f8c291;
-        font-size: 1rem;
+        font-size: 0.85rem;
         text-align: center;
         opacity: 0.9;
-        text-shadow: 0 0 10px rgba(248, 194, 145, 0.3);
-        transform: translateZ(20px);
+        text-shadow: 0 0 6px rgba(248, 194, 145, 0.2);
+        transform: translateZ(15px);
+        margin: 0;
     }
 
     /* Back Side Styling */
     .interactive-grid-item .back {
         transform: rotateY(180deg);
-        background: linear-gradient(135deg, rgba(193, 235, 7, 0.2), rgba(255, 215, 0, 0.15));
-        border: 1px solid rgba(193, 235, 7, 0.4);
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.18), rgba(255, 215, 0, 0.12));
+        border: 1px solid rgba(193, 235, 7, 0.3);
         z-index: 1;
-        box-shadow: inset 0 0 50px rgba(193, 235, 7, 0.1);
+        box-shadow: inset 0 0 30px rgba(193, 235, 7, 0.08);
+        padding: 15px;
     }
 
     .interactive-grid-item .back h3 {
         color: #ffd700;
-        font-size: 1.6rem;
-        margin-bottom: 20px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
         text-align: center;
-        text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-        font-weight: 700;
-        transform: translateZ(40px);
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        font-weight: 600;
+        transform: translateZ(25px);
+        line-height: 1.2;
     }
 
     .interactive-grid-item .back p {
         color: #f7f8f5;
         text-align: center;
-        line-height: 1.7;
-        font-size: 1.05rem;
-        margin-bottom: 25px;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        transform: translateZ(25px);
+        line-height: 1.4;
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+        transform: translateZ(18px);
     }
 
     /* Hover Effects */
@@ -179,28 +178,28 @@
 
     .interactive-grid-item:hover {
         transform: 
-            translateY(-20px) 
-            translateZ(60px) 
-            rotateX(8deg) 
-            rotateY(8deg) 
-            scale(1.02);
+            translateY(-8px) 
+            translateZ(30px) 
+            rotateX(4deg) 
+            rotateY(4deg) 
+            scale(1.03);
         box-shadow: 
-            0 35px 70px rgba(0, 0, 0, 0.6),
-            0 0 60px rgba(193, 235, 7, 0.5),
-            0 0 0 2px rgba(193, 235, 7, 0.3),
-            inset 0 0 30px rgba(255, 255, 255, 0.1);
+            0 20px 40px rgba(0, 0, 0, 0.4),
+            0 0 30px rgba(193, 235, 7, 0.3),
+            0 0 0 1px rgba(193, 235, 7, 0.2),
+            inset 0 0 20px rgba(255, 255, 255, 0.08);
     }
 
     .interactive-grid-item:hover .front img {
         transform: 
             scale(1.08) 
-            translateZ(45px) 
-            rotateZ(2deg);
-        filter: brightness(1.2) contrast(1.2) saturate(1.1);
+            translateZ(25px) 
+            rotateZ(1deg);
+        filter: brightness(1.15) contrast(1.15) saturate(1.05);
         box-shadow: 
-            0 25px 50px rgba(0, 0, 0, 0.4),
-            0 0 30px rgba(193, 235, 7, 0.4),
-            0 0 0 1px rgba(255, 255, 255, 0.2);
+            0 15px 30px rgba(0, 0, 0, 0.3),
+            0 0 15px rgba(193, 235, 7, 0.25),
+            0 0 0 1px rgba(255, 255, 255, 0.15);
     }
 
     /* Enhanced Floating Animation */
@@ -214,24 +213,24 @@
         }
         25% { 
             transform: 
-                translateY(-12px) 
-                rotateX(3deg) 
-                rotateY(2deg)
-                scale(1.01);
+                translateY(-6px) 
+                rotateX(1.5deg) 
+                rotateY(1deg)
+                scale(1.008);
         }
         50% { 
             transform: 
-                translateY(-6px) 
-                rotateX(-2deg) 
-                rotateY(-1deg)
-                scale(1.005);
+                translateY(-3px) 
+                rotateX(-1deg) 
+                rotateY(-0.5deg)
+                scale(1.004);
         }
         75% { 
             transform: 
-                translateY(-8px) 
-                rotateX(1deg) 
-                rotateY(3deg)
-                scale(1.008);
+                translateY(-4px) 
+                rotateX(0.5deg) 
+                rotateY(1.5deg)
+                scale(1.006);
         }
     }
 
@@ -239,43 +238,44 @@
         animation: professionalFloat 8s ease-in-out infinite;
     }
 
-    .interactive-grid-item:nth-child(2) { animation-delay: 0.7s; }
-    .interactive-grid-item:nth-child(3) { animation-delay: 1.4s; }
-    .interactive-grid-item:nth-child(4) { animation-delay: 2.1s; }
-    .interactive-grid-item:nth-child(5) { animation-delay: 2.8s; }
+    .interactive-grid-item:nth-child(2) { animation-delay: 0.6s; }
+    .interactive-grid-item:nth-child(3) { animation-delay: 1.2s; }
+    .interactive-grid-item:nth-child(4) { animation-delay: 1.8s; }
+    .interactive-grid-item:nth-child(5) { animation-delay: 2.4s; }
+    .interactive-grid-item:nth-child(6) { animation-delay: 3.0s; }
 
     /* Back Content Styling */
     .back-content {
-        transform: translateZ(35px);
+        transform: translateZ(20px);
         text-align: center;
         width: 100%;
     }
 
     .project-details {
-        margin-top: 20px;
+        margin-top: 12px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px;
+        gap: 5px;
     }
 
     .project-details .tech {
         display: inline-block;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(193, 235, 7, 0.1));
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 0.85rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(193, 235, 7, 0.08));
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.7rem;
         color: #c1eb07;
-        border: 1px solid rgba(193, 235, 7, 0.4);
-        text-shadow: 0 0 10px rgba(193, 235, 7, 0.3);
-        transition: all 0.3s ease;
-        transform: translateZ(20px);
+        border: 1px solid rgba(193, 235, 7, 0.3);
+        text-shadow: 0 0 6px rgba(193, 235, 7, 0.2);
+        transition: all 0.2s ease;
+        transform: translateZ(12px);
     }
 
     .project-details .tech:hover {
-        background: linear-gradient(135deg, rgba(193, 235, 7, 0.3), rgba(255, 215, 0, 0.2));
-        transform: translateZ(25px) scale(1.1);
-        box-shadow: 0 5px 15px rgba(193, 235, 7, 0.3);
+        background: linear-gradient(135deg, rgba(193, 235, 7, 0.2), rgba(255, 215, 0, 0.15));
+        transform: translateZ(15px) scale(1.08);
+        box-shadow: 0 3px 8px rgba(193, 235, 7, 0.2);
     }
 
     /* Additional 3D Effects */
@@ -286,10 +286,10 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
         opacity: 0;
-        transition: opacity 0.5s ease;
-        border-radius: 25px;
+        transition: opacity 0.4s ease;
+        border-radius: 18px;
     }
 
     .interactive-grid-item:hover .front::before {
@@ -299,28 +299,28 @@
     /* Page Title Enhancement */
     .page-title-3d {
         text-align: center;
-        margin: 40px 0 20px 0;
-        font-size: 3rem;
+        margin: 30px 0 15px 0;
+        font-size: 2.2rem;
         color: #fff;
         text-shadow: 
-            0 0 20px rgba(193, 235, 7, 0.8),
-            0 0 40px rgba(193, 235, 7, 0.4);
-        transform: perspective(500px) rotateX(10deg);
+            0 0 15px rgba(193, 235, 7, 0.7),
+            0 0 30px rgba(193, 235, 7, 0.3);
+        transform: perspective(400px) rotateX(8deg);
         animation: titleGlow 3s ease-in-out infinite alternate;
     }
 
     @keyframes titleGlow {
         0% { 
-            transform: perspective(500px) rotateX(10deg) translateY(0);
-            text-shadow: 0 0 20px rgba(193, 235, 7, 0.8);
+            transform: perspective(400px) rotateX(8deg) translateY(0);
+            text-shadow: 0 0 15px rgba(193, 235, 7, 0.7);
         }
         100% { 
-            transform: perspective(500px) rotateX(15deg) translateY(-5px);
-            text-shadow: 0 0 30px rgba(193, 235, 7, 1);
+            transform: perspective(400px) rotateX(12deg) translateY(-3px);
+            text-shadow: 0 0 20px rgba(193, 235, 7, 0.9);
         }
     }
 
-    /* Modal Styles */
+    /* Modal Styles - Enhanced for Mobile */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -334,8 +334,9 @@
         z-index: 1000;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s ease;
+        transition: all 0.3s ease;
         backdrop-filter: blur(15px);
+        touch-action: manipulation;
     }
 
     .modal-overlay.active {
@@ -346,55 +347,50 @@
     .modal-content {
         position: relative;
         max-width: 90%;
-        max-height: 90%;
+        max-height: 85%;
         width: auto;
         height: auto;
-        transform: scale(0.8) translateZ(0);
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border-radius: 20px;
+        transform: scale(0.85);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-radius: 15px;
         overflow: hidden;
         box-shadow: 
-            0 25px 80px rgba(0, 0, 0, 0.8),
-            0 0 0 1px rgba(255, 255, 255, 0.1),
-            0 0 60px rgba(193, 235, 7, 0.4);
+            0 20px 50px rgba(0, 0, 0, 0.7),
+            0 0 0 1px rgba(255, 255, 255, 0.08),
+            0 0 40px rgba(193, 235, 7, 0.3);
     }
 
     .modal-overlay.active .modal-content {
-        transform: scale(1) translateZ(0);
+        transform: scale(1);
     }
 
     .modal-image {
         width: 100%;
         height: auto;
-        max-height: 80vh;
+        max-height: 60vh;
         object-fit: contain;
         display: block;
-        border-radius: 20px;
     }
 
     .modal-close {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 10px;
+        right: 10px;
         background: rgba(0, 0, 0, 0.7);
         color: #fff;
         border: none;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         z-index: 10;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-close:hover {
-        background: rgba(193, 235, 7, 0.8);
-        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        -webkit-tap-highlight-color: transparent;
     }
 
     .modal-nav {
@@ -404,30 +400,26 @@
         background: rgba(0, 0, 0, 0.7);
         color: #fff;
         border: none;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        font-size: 1.5rem;
+        font-size: 1rem;
         cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         z-index: 10;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-nav:hover {
-        background: rgba(193, 235, 7, 0.8);
-        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        -webkit-tap-highlight-color: transparent;
     }
 
     .modal-prev {
-        left: 20px;
+        left: 10px;
     }
 
     .modal-next {
-        right: 20px;
+        right: 10px;
     }
 
     .modal-info {
@@ -437,125 +429,191 @@
         width: 100%;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
         color: white;
-        padding: 30px 20px 20px;
+        padding: 20px 15px 15px;
         text-align: center;
-        transform: translateY(100%);
-        transition: transform 0.4s ease;
-    }
-
-    .modal-content:hover .modal-info {
-        transform: translateY(0);
     }
 
     .modal-info h3 {
         color: #c1eb07;
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-        text-shadow: 0 0 15px rgba(193, 235, 7, 0.7);
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        text-shadow: 0 0 10px rgba(193, 235, 7, 0.6);
     }
 
     .modal-info p {
         color: #f8c291;
-        font-size: 1.1rem;
-        margin-bottom: 15px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    /* Mobile-specific modal improvements */
+    .modal-touch-info {
+        display: none;
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.8rem;
+        padding: 8px;
+        z-index: 5;
     }
 
     /* Responsive Design */
     @media (max-width: 1200px) {
         .interactive-grid-3d {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            padding: 18px;
         }
         
         .interactive-grid-item {
-            height: 400px;
+            height: 260px;
         }
         
         .interactive-grid-item .front img {
-            width: 260px;
-            height: 260px;
+            width: 130px;
+            height: 130px;
         }
     }
 
     @media (max-width: 768px) {
         .interactive-grid-3d {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            padding: 15px;
         }
         
         .interactive-grid-item {
-            height: 380px;
-        }
-        
-        .interactive-grid-item .front img {
-            width: 240px;
             height: 240px;
         }
         
-        .interactive-grid-item:hover {
-            transform: translateY(-12px) translateZ(40px);
+        .interactive-grid-item .front img {
+            width: 110px;
+            height: 110px;
+        }
+        
+        .interactive-grid-item .front h3 {
+            font-size: 1rem;
+        }
+        
+        .interactive-grid-item .back h3 {
+            font-size: 1.1rem;
         }
 
-        .modal-nav {
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
+        .interactive-grid-item .back p {
+            font-size: 0.75rem;
         }
 
-        .modal-close {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
+        .page-title-3d {
+            font-size: 1.8rem;
+            margin: 25px 0 12px 0;
+        }
+
+        .modal-touch-info {
+            display: block;
         }
     }
 
     @media (max-width: 480px) {
         .interactive-grid-3d {
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            padding: 12px;
         }
         
         .interactive-grid-item {
-            height: 360px;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-        
-        .interactive-grid-item .front img {
-            width: 220px;
             height: 220px;
         }
         
+        .interactive-grid-item .front img {
+            width: 100px;
+            height: 100px;
+        }
+        
         .interactive-grid-item .front h3 {
-            font-size: 1.3rem;
+            font-size: 0.9rem;
         }
         
         .interactive-grid-item .back h3 {
-            font-size: 1.4rem;
-        }
-
-        .modal-nav {
-            width: 40px;
-            height: 40px;
             font-size: 1rem;
         }
 
-        .modal-close {
-            width: 35px;
-            height: 35px;
-            font-size: 1rem;
+        .interactive-grid-item .back p {
+            font-size: 0.7rem;
+            margin-bottom: 10px;
         }
 
-        .modal-info h3 {
+        .page-title-3d {
+            font-size: 1.6rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .project-details .tech {
+            font-size: 0.65rem;
+            padding: 3px 8px;
+        }
+    }
+
+    /* Small Mobile Devices */
+    @media (max-width: 360px) {
+        .interactive-grid-3d {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        
+        .interactive-grid-item {
+            height: 200px;
+        }
+        
+        .interactive-grid-item .front img {
+            width: 90px;
+            height: 90px;
+        }
+        
+        .interactive-grid-item .front h3 {
+            font-size: 0.85rem;
+        }
+        
+        .page-title-3d {
             font-size: 1.4rem;
         }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+        .interactive-grid-item:hover {
+            transform: none;
+        }
+        
+        .interactive-grid-item:active {
+            transform: scale(0.97);
+        }
+        
+        /* Reduce animation intensity on mobile for better performance */
+        .interactive-grid-item {
+            animation-duration: 12s;
+        }
+    }
+
+    /* Container for proper centering */
+    .container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    .container-3d {
+        perspective: 1200px;
     }
   </style>
 </head>
 <body>
+
 
 <!-- Loading Animation -->
 <div class="loader-overlay" id="pageLoader" aria-live="polite" aria-label="Loading experience">
@@ -604,50 +662,38 @@
 <!-- 3D Background Elements -->
 <div class="bg-3d-elements" id="bg3dElements"></div>
 
-<!-- Modal for fullscreen image view -->
-<div class="modal-overlay" id="imageModal">
-  <button class="modal-close" id="modalClose">&times;</button>
-  <button class="modal-nav modal-prev" id="modalPrev">❮</button>
-  <button class="modal-nav modal-next" id="modalNext">❯</button>
-  <div class="modal-content">
-    <img class="modal-image" id="modalImage" src="" alt="">
-    <div class="modal-info">
-      <h3 id="modalTitle">Project Title</h3>
-      <p id="modalDescription">Project description goes here</p>
-      <div class="project-details" id="modalTech"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Navigation -->
 <nav>
   <a href="index.html">Home</a>
   <a href="education.html">Education</a>
   <a href="experience.html">Experience</a>
   <a href="skills.html">Skills</a>
   <a href="contact.html">Contact</a>
-  <a href="My Projects.html" class="active">My Projects</a> 
+  <a href="My Projects.html" class="active">My Projects</a>
+  <a href="./My Gallery.html" onclick="accessGallery()">My Gallery 🔒</a>
 </nav>
+
+
 
 <!-- Main Content -->
 <div class="container container-3d">
-    <h1 class="page-title page-title-3d floating-3d">Graphic Design Projects</h1>
+    <h1 class="page-title page-title-3d">Graphic Design Projects</h1>
     
     <div class="interactive-grid-3d">
+
         <!-- Project 1 -->
         <div class="interactive-grid-item" data-index="0">
             <div class="front">
                 <img src="./gd/1.jpg" alt="Under 19 Campaign">
                 <h3>Under 19 Campaign</h3>
-                <p>Youth Engagement Design</p>
+                <p>Youth Engagement</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Youth Campaign Design</h3>
-                    <p>Social media campaign targeting youth audience with vibrant colors, modern typography, and engaging visuals. Designed to increase brand awareness and engagement.</p>
+                    <h3>Youth Campaign</h3>
+                    <p>Social media campaign with vibrant colors and modern typography for youth audience.</p>
                     <div class="project-details">
                         <span class="tech">Photoshop</span>
-                        <span class="tech">Illustrator</span>
+    
                         <span class="tech">Social Media</span>
                     </div>
                 </div>
@@ -657,17 +703,17 @@
         <!-- Project 2 -->
         <div class="interactive-grid-item" data-index="1">
             <div class="front">
-                <img src="./gd/2.jpg" alt="Brand Identity Design">
-                <h3>Brand Identity</h3>
-                <p>Corporate Branding Package</p>
+                <img src="./gd/2.jpg" alt="Brand Label">
+                <h3>Brand Label</h3>
+                <p>Corporate Branding</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Complete Brand Identity</h3>
-                    <p>Comprehensive brand identity package including logo design, color palette, typography system, and brand guidelines. Created for modern corporate identity.</p>
+                    <h3>Brand Identity</h3>
+                    <p>Complete brand package with logo, color palette, and brand guidelines.</p>
                     <div class="project-details">
                         <span class="tech">Illustrator</span>
-                        <span class="tech">InDesign</span>
+                        <span class="tech">Photoshop</span>
                         <span class="tech">Branding</span>
                     </div>
                 </div>
@@ -677,14 +723,14 @@
         <!-- Project 3 -->
         <div class="interactive-grid-item" data-index="2">
             <div class="front">
-                <img src="./gd/3.jpg" alt="Event Poster Design">
-                <h3>Event Poster</h3>
-                <p>Marketing Campaign Design</p>
+                <img src="./gd/A_L 1.jpg" alt="Exam Wish Poster">
+                <h3>Exam Wish Poster</h3>
+                <p>Marketing Design</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Event Marketing Poster</h3>
-                    <p>Eye-catching poster design for corporate event with bold typography, engaging visuals, and clear call-to-action. Designed to maximize event attendance.</p>
+                    <h3>Exam Wish Poster</h3>
+                    <p>Eye-catching poster with bold typography and engaging visuals.</p>
                     <div class="project-details">
                         <span class="tech">Photoshop</span>
                         <span class="tech">After Effects</span>
@@ -697,17 +743,17 @@
         <!-- Project 4 -->
         <div class="interactive-grid-item" data-index="3">
             <div class="front">
-                <img src="./gd/4.jpg" alt="Social Media Graphics">
-                <h3>Social Media Kit</h3>
-                <p>Content Creation Package</p>
+                <img src="./gd/AA.jpg" alt="Brand Identity">
+                <h3>Brand Identity</h3>
+                <p>Content Package</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Social Media Graphics</h3>
-                    <p>Complete social media graphics package including posts, stories, banners, and templates. Designed for consistent brand presence across platforms.</p>
+                    <h3>Brand Identity</h3>
+                    <p>Complete graphics package for consistent brand presence.</p>
                     <div class="project-details">
                         <span class="tech">Photoshop</span>
-                        <span class="tech">Canva</span>
+                        
                         <span class="tech">Social Media</span>
                     </div>
                 </div>
@@ -717,14 +763,14 @@
         <!-- Project 5 -->
         <div class="interactive-grid-item" data-index="4">
             <div class="front">
-                <img src="./gd/5.jpg" alt="Product Packaging">
-                <h3>Product Packaging</h3>
-                <p>Retail Design Solution</p>
+                <img src="./gd/amjad.jpg" alt="Class Poster">
+                <h3>Class Poster</h3>
+                <p>Retail Design</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Packaging Design</h3>
-                    <p>Innovative product packaging design that stands out on shelves while maintaining brand consistency. Focus on consumer appeal and functionality.</p>
+                    <h3>Class Poster</h3>
+                    <p>Innovative packaging that stands out while maintaining brand consistency.</p>
                     <div class="project-details">
                         <span class="tech">Illustrator</span>
                         <span class="tech">3D Mockup</span>
@@ -737,24 +783,119 @@
         <!-- Project 6 -->
         <div class="interactive-grid-item" data-index="5">
             <div class="front">
-                <img src="./gd/6.jpg" alt="Web Banner Design">
-                <h3>Web Banners</h3>
-                <p>Digital Advertising</p>
+                <img src="./gd/BACK TO SCHOOLm.jpg" alt="Back 2 School poster">
+                <h3>Back 2 School poster</h3>
+                <p>Digital Ads</p>
             </div>
             <div class="back">
                 <div class="back-content">
-                    <h3>Digital Ad Campaign</h3>
-                    <p>Series of web banners and digital ads designed for online campaigns. Optimized for various platforms with strong call-to-action elements.</p>
+                    <h3>Back 2 School poster</h3>
+                    <p>Series of optimized digital ads for online campaigns.</p>
                     <div class="project-details">
                         <span class="tech">Photoshop</span>
-                        <span class="tech">Google Web Designer</span>
+                        <span class="tech">Google Web</span>
                         <span class="tech">Digital Ads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <!-- Additional projects to show 4-5 per row -->
+        <div class="interactive-grid-item" data-index="6">
+            <div class="front">
+                <img src="./gd/bck.jpg" alt="B2S Social Media Poster">
+                <h3>B2S Social Media Poster</h3>
+                <p>Brand Identity</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>B2S Social Media Poster</h3>
+                    <p>Modern logo design for tech startup with clean aesthetics.</p>
+                    <div class="project-details">
+                        <span class="tech">Illustrator</span>
+                        <span class="tech">Photoshop/span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional projects to show 4-5 per row -->
+        <div class="interactive-grid-item" data-index="6">
+            <div class="front">
+                <img src="./gd/BAND.jpg" alt="School Band P;oster">
+                <h3>School Band Poster</h3>
+                <p>Brand Identity</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>School Band Poster</h3>
+                    <p>Modern logo design for tech startup with clean aesthetics.</p>
+                    <div class="project-details">
+                        <span class="tech">Illustrator</span>
+                        <span class="tech">Vector</span>
+                        <span class="tech">Branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="interactive-grid-item" data-index="7">
+            <div class="front">
+                <img src="./gd/banner.jpg" alt="Simple Banner Design">
+                <h3>Simple Banner Design</h3>
+                <p>Print Design</p>
+            </div>
+            <div class="back">
+                <div class="back-content">
+                    <h3>Simple Banner Design</h3>
+                    <p>Corporate brochure with professional layout and typography.</p>
+                    <div class="project-details">
+                        
+                        <span class="tech">Photoshop</span>
+                        <span class="tech">Print</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal for fullscreen image view -->
+<div class="modal-overlay" id="imageModal">
+  <button class="modal-close" id="modalClose">&times;</button>
+  <button class="modal-nav modal-prev" id="modalPrev">❮</button>
+  <button class="modal-nav modal-next" id="modalNext">❯</button>
+  <div class="modal-content">
+    <img class="modal-image" id="modalImage" src="" alt="">
+    <div class="modal-info">
+      <h3 id="modalTitle">Project Title</h3>
+      <p id="modalDescription">Project description goes here</p>
+      <div class="project-details" id="modalTech"></div>
+    </div>
+    <div class="modal-touch-info">Swipe to navigate between projects</div>
+  </div>
+</div>
+
+
+<!-- Social Icons -->
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/inasimti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon icon-3d">
+    </a>
+    <img src="./Files/git.jpg" alt="GitHub" class="icon icon-3d">
+    <a href="https://www.facebook.com/share/1Ec4FhveFs/">
+      <img src="./Files/facebook.webp" alt="Facebook" class="icon icon-3d">
+    </a>
+    <a href="https://www.instagram.com/inas_imti?igsh=Y3J3MW9ueDBwdHFh">
+      <img src="./Files/Insta.png" alt="Instagram" class="icon icon-3d">
+    </a>
+    <a href="mailto:inasimti9@gmail.com">
+      <img src="./Files/Mail.webp" alt="Mail" class="icon icon-3d">
+    </a>
+  </div>
 
 <script>
   // Enhanced loading functionality with real-time network detection
@@ -856,27 +997,27 @@
     // Loading tips array
     const tips = {
       fast: [
-        "Loading graphic design portfolio...",
-        "Optimizing 3D effects...",
-        "Preparing creative assets...",
-        "Almost ready...",
-        "Portfolio loaded successfully!"
+        "Loading at lightning speed...",
+        "Optimizing performance...",
+        "High-speed experience...",
+        "Almost instant...",
+        "Ready in a flash..."
       ],
       average: [
-        "Loading design projects...",
-        "Preparing 3D animations...",
-        "Optimizing image quality...",
-        "Setting up interactive elements...",
+        "Great things take time...",
+        "Preparing your experience...",
+        "Optimizing performance...",
+        "Loading creative assets...",
         "Almost there...",
-        "Finalizing portfolio display..."
+        "Finalizing setup..."
       ],
       slow: [
-        "Loading creative content...",
-        "Preparing design showcase...",
-        "Optimizing for connection...",
-        "Loading high-quality images...",
-        "Setting up 3D grid...",
-        "Portfolio almost ready..."
+        "Taking a bit longer...",
+        "Optimizing for slower connections...",
+        "Loading efficiently...",
+        "Please be patient...",
+        "Almost ready...",
+        "Working on it..."
       ]
     };
     
@@ -963,7 +1104,7 @@
         
         // Calculate actual load performance
         const totalTime = Date.now() - startTime;
-        console.log(`Portfolio loaded in ${totalTime}ms (${connectionSpeed} connection)`);
+        console.log(`Actual load completed in ${totalTime}ms (${connectionSpeed} connection)`);
         
         // Hide loader immediately when done
         hideLoader();
@@ -1001,7 +1142,29 @@
     }, 15000); // Maximum 15 seconds
   }
 
-  // Modal functionality
+  // Initialize
+  document.addEventListener('DOMContentLoaded', showPage);
+
+  // Your existing mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.createElement('button');
+    menuToggle.innerHTML = '☰';
+    menuToggle.classList.add('menu-toggle');
+    menuToggle.addEventListener('click', function() {
+      document.querySelector('nav').classList.toggle('responsive');
+    });
+    
+    // Add toggle button to navigation
+    document.querySelector('nav').appendChild(menuToggle);
+  });
+
+  </script>
+
+
+
+
+<script>
+  // Modal functionality with mobile support
   function initModal() {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
@@ -1014,6 +1177,8 @@
     
     const projects = document.querySelectorAll('.interactive-grid-item');
     let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
     
     // Open modal with project details
     function openModal(index) {
@@ -1054,13 +1219,13 @@
       
       // Show modal
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
     }
     
     // Close modal
     function closeModal() {
       modal.classList.remove('active');
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.style.overflow = '';
     }
     
     // Navigate to next project
@@ -1078,7 +1243,6 @@
     // Add click event to each project
     projects.forEach((project, index) => {
       project.addEventListener('click', (e) => {
-        // Don't open modal if clicking on the back side
         if (!e.target.closest('.back')) {
           openModal(index);
         }
@@ -1089,6 +1253,29 @@
     modalClose.addEventListener('click', closeModal);
     modalPrev.addEventListener('click', prevProject);
     modalNext.addEventListener('click', nextProject);
+    
+    // Touch events for modal navigation
+    modal.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    modal.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const swipeDistance = touchEndX - touchStartX;
+      
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0) {
+          prevProject();
+        } else {
+          nextProject();
+        }
+      }
+    }
     
     // Close modal when clicking outside the image
     modal.addEventListener('click', (e) => {
@@ -1117,19 +1304,7 @@
 
   // Initialize
   document.addEventListener('DOMContentLoaded', function() {
-    showPage();
     initModal();
-    
-    // Mobile menu toggle functionality
-    const menuToggle = document.createElement('button');
-    menuToggle.innerHTML = '☰';
-    menuToggle.classList.add('menu-toggle');
-    menuToggle.addEventListener('click', function() {
-      document.querySelector('nav').classList.toggle('responsive');
-    });
-    
-    // Add toggle button to navigation
-    document.querySelector('nav').appendChild(menuToggle);
   });
 </script>
 </body>
