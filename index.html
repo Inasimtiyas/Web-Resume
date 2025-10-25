@@ -3,16 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home page</title>
+  <title>Inas Imthiyas - Cybersecurity Specialist & IT Professional</title>
+  
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="title" content="Inas Imthiyas - Cybersecurity Specialist & IT Professional">
+  <meta name="description" content="Welcome to the official portfolio of Inas Imthiyas — a Cybersecurity Specialist, IT Manager, Graphic Designer, and Web Developer from Sri Lanka. Explore my experience, skills, and creative projects.">
+  <meta name="keywords" content="Inas Imthiyas, Cybersecurity, Portfolio, IT Specialist, Web Developer, Graphic Designer, System Administrator, Sri Lanka, Inas Imthiyas Portfolio">
+  <meta name="author" content="Inas Imthiyas">
+  <meta name="robots" content="index, follow">
+
+  <!-- ✅ Open Graph (for social media preview) -->
+  <meta property="og:title" content="Inas Imthiyas - Portfolio">
+  <meta property="og:description" content="Official portfolio of Inas Imthiyas — Cybersecurity Specialist, IT Manager, and Creative Technologist.">
+  <meta property="og:image" content="https://inasimtiyas.github.io/Web-Resume/Files/my%20pic.jpg">
+  <meta property="og:url" content="https://inasimtiyas.github.io/Web-Resume/">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ Structured Data for Google (Rich Info) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Inas Imthiyas",
+    "url": "https://inasimtiyas.github.io/Web-Resume/",
+    "image": "https://inasimtiyas.github.io/Web-Resume/Files/my%20pic.jpg",
+    "jobTitle": "Cybersecurity Specialist",
+    "description": "Official portfolio of Inas Imthiyas — Cybersecurity Specialist, IT Manager, and Graphic Designer from Sri Lanka.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Port City BPO"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/inasimtiyas/",
+      "https://www.instagram.com/inas_imti/",
+      "https://github.com/inasimtiyas",
+      "https://www.facebook.com/share/1Ec4FhveFs/"
+    ]
+  }
+  </script>
+
+  <!-- Existing CSS & Icons (unchanged) -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-   <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
-<link rel="manifest" href="./Files/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
+  <link rel="manifest" href="./Files/site.webmanifest">
 </head>
-<body>
 
+<body>
 <!-- 3D Background Elements -->
 <div class="bg-3d-elements" id="bg3dElements"></div>
 
@@ -38,8 +77,6 @@
 
 <div class="front front-3d">
   <img src="./Files/my pic.jpg" alt="Inas Imthiyas" class="profile profile-3d" /> 
-  
-  <!-- Updated h1 with 3D typing effect -->
   <h1>
     <span class="typing-container typing-container-3d">
       <span class="typing-text typing-text-3d">
@@ -47,7 +84,6 @@
       </span>
     </span>
   </h1>
-  
   <h4>
     <span class="role-badge-3d">IT Manager</span>
     <span class="role-badge-3d">UI UX Designer</span>
@@ -86,8 +122,8 @@
   </a>
 </div>
 
+<!-- Your Original JavaScript (unchanged) -->
 <script>
-  // Create 3D background elements
   function create3DBgElements() {
     const bgContainer = document.getElementById('bg3dElements');
     for (let i = 0; i < 12; i++) {
@@ -103,7 +139,6 @@
     }
   }
 
-  // Mobile menu toggle functionality
   document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.createElement('button');
     menuToggle.innerHTML = '☰';
@@ -111,39 +146,29 @@
     menuToggle.addEventListener('click', function() {
       document.querySelector('nav').classList.toggle('responsive');
     });
-    
-    // Add toggle button to navigation
     document.querySelector('nav').appendChild(menuToggle);
-    
-    // Initialize 3D background elements
     create3DBgElements();
   });
 
-  /* Matrix Hacking Effect */
   const canvas = document.getElementById("matrix");
   const ctx = canvas.getContext("2d");
-
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
 
   const letters = "01#@$%&<>?/\\|█▓▒░";
   const fontSize = 16;
   const columns = canvas.width / fontSize;
-
   const drops = [];
   for (let x = 0; x < columns; x++) drops[x] = 1;
 
   function draw() {
-    ctx.fillStyle = "rgba(26, 0, 0, 0.1)"; // dark maroon fade
+    ctx.fillStyle = "rgba(26, 0, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.fillStyle = "#ffcc00"; // yellow code
+    ctx.fillStyle = "#ffcc00";
     ctx.font = fontSize + "px monospace";
-    
     for (let i = 0; i < drops.length; i++) {
       const text = letters.charAt(Math.floor(Math.random() * letters.length));
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
@@ -155,34 +180,27 @@
     canvas.width = window.innerWidth;
   });
 
-  /* Typing Effect Cyber Words */
   const phrases = ["[ LOADING... ]", "[ ACCESS GRANTED ]", "[ SYSTEM READY ]"];
   let i = 0, j = 0;
   let currentPhrase = [];
   let isDeleting = false, isEnd = false;
-
   function loop() {
     isEnd = false;
     const cyberWords = document.getElementById("cyberWords");
-
     cyberWords.innerHTML = currentPhrase.join("");
-
     if (i < phrases.length) {
       if (!isDeleting && j <= phrases[i].length) {
         currentPhrase.push(phrases[i][j]);
         j++;
       }
-
       if(isDeleting && j <= phrases[i].length) {
         currentPhrase.pop(phrases[i][j]);
         j--;
       }
-
       if (j == phrases[i].length) {
         isEnd = true;
         isDeleting = true;
       }
-
       if (isDeleting && j === 0) {
         currentPhrase = [];
         isDeleting = false;
@@ -197,15 +215,12 @@
   }
   loop();
 
-  /* Skip Intro Function */
   function skipIntro() {
     document.getElementById("intro").style.display = "none";
   }
 
-  // Gallery access function (placeholder)
   function accessGallery() {
     alert("Gallery access functionality would be implemented here");
-    // You can add password protection or other logic here
   }
 </script>
 </body>
