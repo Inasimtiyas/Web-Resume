@@ -115,101 +115,66 @@
 <!-- 3D Background Elements -->
 <div class="bg-3d-elements" id="bg3dElements"></div>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="education.html" class="active">Education</a>
-  <a href="experience.html">Experience</a>
-  <a href="skills.html">Skills</a>
-  <a href="contact.html">Contact</a>
-  <a href="My Projects.html">My Projects</a>
-  <a href="./AI chatbox.html" id="open-chat" >AI ChatBOX</a>
-</nav>
 
-<div id="ai-chat-container" style="display:none; position:fixed; bottom:80px; right:20px; width:350px; max-height:500px; border:2px solid #800000; border-radius:15px; background:white; box-shadow:0 4px 15px rgba(0,0,0,0.2); z-index:1000;">
-  <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background:#800000; color:white; border-radius:15px 15px 0 0;">
+<div>
+   <style>
+    body { font-family: Poppins, sans-serif; background:#610000; display:flex; justify-content:center; padding-top:50px; }
+    #ai-chat-container { 
+      width:400px; 
+      border-radius:25px; 
+      background:linear-gradient(145deg,#800000,#b22222); 
+      box-shadow: 8px 8px 20px #5c0000, -8px -8px 20px #ff6666; 
+      overflow:hidden; 
+      display:flex; 
+      flex-direction:column;
+    }
+    #chat-header { 
+      background:linear-gradient(135deg,#b22222,#800000); 
+      color:gold; 
+      font-weight:bold; 
+      font-size:16px; 
+      padding:12px 20px; 
+      text-shadow:1px 1px 2px #000; 
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    #chat-box { 
+      flex:1; 
+      overflow-y:auto; 
+      padding:12px; 
+      background:#ffe5d4; 
+      display:flex; flex-direction:column; gap:8px;
+    }
+    #input-area { display:flex; padding:10px; gap:8px; background:#fff0f0; }
+    #user-input { 
+      flex:1; padding:10px; border-radius:12px; border:1px solid #b22222; 
+      box-shadow: inset 2px 2px 5px #800000, inset -2px -2px 5px #ffcccc; 
+    }
+    #send-btn { 
+      padding:10px 14px; border:none; border-radius:12px; 
+      background:gold; color:#800000; font-weight:bold; cursor:pointer; 
+      box-shadow: 2px 2px 6px #b8860b, -2px -2px 6px #fffacd; 
+    }
+    .user-message { align-self:flex-end; padding:8px 12px; border-radius:12px; max-width:80%; background:linear-gradient(135deg,#800000,#b22222); color:gold; box-shadow:2px 2px 5px rgba(0,0,0,0.2); }
+    .ai-message { align-self:flex-start; padding:8px 12px; border-radius:12px; max-width:80%; background:linear-gradient(135deg,#ffd700,#ffdf91); color:#800000; box-shadow:2px 2px 5px rgba(0,0,0,0.2); }
+    #close-btn { background:none; border:none; color:gold; font-weight:bold; font-size:18px; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+<div class="contact-container">
+  <div id="chat-header">
     <span>AI Chat 🤖</span>
-    <button id="close-chat" style="background:none; border:none; color:white; font-weight:bold; cursor:pointer;">✖</button>
+    <button id="close-btn">✖</button>
   </div>
-  <div id="chat-box" style="height:300px; overflow-y:auto; padding:10px; background:#fff8f8; font-size:14px;"></div>
-  <div style="display:flex; padding:10px; gap:5px;">
-    <input type="text" id="user-input" placeholder="Ask something..." style="flex:1; padding:6px; border-radius:5px; border:1px solid #ccc;" />
-    <button id="send-btn" style="padding:6px 10px; border:none; border-radius:5px; background:#800000; color:white; cursor:pointer;">Send</button>
-  </div>
-  <div style="padding:0 10px 10px;">
-    <button id="upload-btn" style="padding:6px 10px; border:none; border-radius:5px; background:#555; color:white; cursor:pointer;">Upload Image</button>
-    <input type="file" id="file-input" accept="image/*" style="display:none;" />
+  <div id="chat-box"></div>
+  <div id="input-area">
+    <input type="text" id="user-input" placeholder="Ask me anything..." />
+    <button id="send-btn">Send</button>
   </div>
 </div>
-
-
+</div>
 
 <script>
-
-const openChatBtn = document.getElementById('open-chat');
-const closeChatBtn = document.getElementById('close-chat');
-const chatContainer = document.getElementById('ai-chat-container');
-const chatBox = document.getElementById('chat-box');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const uploadBtn = document.getElementById('upload-btn');
-const fileInput = document.getElementById('file-input');
-
-// Replace with your serverless function URL
-const SERVER_URL = "https://your-server.vercel.app/chat";
-
-// Open / Close Chat
-openChatBtn.addEventListener('click', () => { 
-  chatContainer.style.display = 'block'; 
-  if(chatBox.innerHTML==="") addMessage("ai","Hello! I’m your AI assistant 🤖. Ask me anything or upload an image!"); 
-});
-closeChatBtn.addEventListener('click', () => { chatContainer.style.display = 'none'; });
-
-// Send message
-sendBtn.addEventListener('click', () => handleMessage(userInput.value));
-userInput.addEventListener('keypress', e => { if(e.key==="Enter") handleMessage(userInput.value); });
-
-// Upload image
-uploadBtn.addEventListener('click', () => fileInput.click());
-fileInput.addEventListener('change', handleFileUpload);
-
-// Add chat message
-function addMessage(type, text){
-  const div = document.createElement('div');
-  div.className = type;
-  div.style.margin="5px 0"; div.style.padding="5px 10px"; div.style.borderRadius="10px";
-  div.style.background = type==="user" ? "#ffe5e5" : "#f0e5ff";
-  div.innerHTML = `<b>${type==="user"?"You":"AI"}:</b> ${text}`;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Handle user message
-async function handleMessage(message){
-  if(!message.trim()) return;
-  addMessage("user", message);
-  userInput.value="";
-  try{
-    const res = await fetch(SERVER_URL,{
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ message })
-    });
-    const data = await res.json();
-    addMessage("ai", data.reply);
-  } catch(e){
-    console.error(e);
-    addMessage("ai","Oops! Something went wrong.");
-  }
-}
-
-// Handle image upload
-async function handleFileUpload(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  addMessage("user",`Uploaded an image: ${file.name}`);
-  addMessage("ai","Image analysis will be added soon! Chat works fully.");
-}
-
 
   // Create 3D background elements
   function create3DBgElements() {
@@ -470,6 +435,64 @@ async function handleFileUpload(e){
     // Add toggle button to navigation
     document.querySelector('nav').appendChild(menuToggle);
   });
+
+
+  const chatContainer = document.getElementById('ai-chat-container');
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const closeBtn = document.getElementById('close-btn');
+
+// Replace this with your deployed serverless API URL
+const SERVER_URL = "https://your-server.vercel.app/chat";
+
+closeBtn.addEventListener('click', () => chatContainer.style.display='none');
+
+sendBtn.addEventListener('click', () => handleMessage(userInput.value));
+userInput.addEventListener('keypress', e => { if(e.key==="Enter") handleMessage(userInput.value); });
+
+function addMessage(type,text){
+  const div = document.createElement('div');
+  div.className = type==="user"?"user-message":"ai-message";
+  if(type==="ai"){
+    div.innerHTML = `<b>AI:</b> <span id="typing">...</span>`;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    let i=0;
+    let interval=setInterval(()=>{
+      div.querySelector("#typing").innerText = text.slice(0,i+1);
+      i++;
+      if(i===text.length) clearInterval(interval);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    },25);
+  } else {
+    div.innerHTML = `<b>You:</b> ${text}`;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+}
+
+async function handleMessage(message){
+  if(!message.trim()) return;
+  addMessage("user", message);
+  userInput.value="";
+  try{
+    const res = await fetch(SERVER_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({message})
+    });
+    const data = await res.json();
+    addMessage("ai", data.reply);
+  } catch(e){
+    addMessage("ai","Oops! Something went wrong.");
+    console.error(e);
+  }
+}
+
+// Initial welcome message
+addMessage("ai","Hello! I’m your AI assistant 🤖. Ask me anything!");
 </script>
+
 </body>
 </html>
