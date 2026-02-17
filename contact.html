@@ -7,26 +7,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-
+  
   <link rel="apple-touch-icon" sizes="180x180" href="./Files/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./Files/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./Files/favicon-16x16.png">
   <link rel="manifest" href="./Files/site.webmanifest">
 
-  <!-- ✅ SEO Meta Tags -->
+  <!-- SEO Meta Tags -->
   <meta name="description" content="Get in touch with Inas Imthiyas — a cybersecurity specialist, full-stack developer, and creative IT professional from Sri Lanka. Reach out via email, LinkedIn, or phone for collaborations and opportunities." />
   <meta name="keywords" content="Inas Imthiyas, contact Inas, Sri Lanka IT professional, cybersecurity specialist, web developer, IT manager, system administrator, portfolio, contact page" />
   <meta name="author" content="Inas Imthiyas" />
   <meta name="robots" content="index, follow" />
 
-  <!-- ✅ Open Graph (Social Media Preview) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Contact - Inas Imthiyas" />
   <meta property="og:description" content="Reach out to Inas Imthiyas — Cybersecurity Specialist & IT Professional from Sri Lanka." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://inasimtiyas.github.io/Web-Resume/contact.html" />
   <meta property="og:image" content="https://inasimtiyas.github.io/Web-Resume/Files/linkedIn.webp" />
 
-  <!-- ✅ Structured Data (Schema.org JSON-LD) -->
+  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,246 +53,151 @@
   }
   </script>
 </head>
-
 <body>
-
-<!-- Loading Animation -->
-<div class="loader-overlay" id="pageLoader" aria-live="polite" aria-label="Loading experience">
-  <div class="connection-indicator" id="connectionIndicator">
-    <div class="connection-dot" id="connectionDot"></div>
-    <span id="connectionText">Detecting connection...</span>
+  <!-- Loading Animation -->
+  <div class="loader-overlay" id="pageLoader" aria-live="polite" aria-label="Loading experience">
+    <div class="connection-indicator" id="connectionIndicator">
+      <div class="connection-dot" id="connectionDot"></div>
+      <span id="connectionText">Detecting connection...</span>
+    </div>
+    <div class="hack-line"></div><div class="hack-line"></div><div class="hack-line"></div>
+    <div class="hack-line"></div><div class="hack-line"></div>
+    <div class="interactive-bg" id="interactiveBg"></div>
+    <div class="loader-bars"><div></div><div></div><div></div><div></div><div></div></div>
+    <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="loader-text">Loading Experience</div>
+    <div class="resume-words">Creative &nbsp; | &nbsp; Reliable &nbsp; | &nbsp; Passionate &nbsp; | &nbsp; Professional</div>
+    <div class="loading-tips" id="loadingTips"></div>
+    <div class="loading-percentage" id="loadingPercentage">0%</div>
+    <div class="loading-stats" id="loadingStats"></div>
   </div>
-  <div class="hack-line"></div><div class="hack-line"></div><div class="hack-line"></div><div class="hack-line"></div><div class="hack-line"></div>
-  <div class="interactive-bg" id="interactiveBg"></div>
-  <div class="loader-bars"><div></div><div></div><div></div><div></div><div></div></div>
-  <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
-  <div class="loader-text">Loading Experience</div>
-  <div class="resume-words">Creative &nbsp; | &nbsp; Reliable &nbsp; | &nbsp; Passionate &nbsp; | &nbsp; Professional</div>
-  <div class="loading-tips" id="loadingTips"></div>
-  <div class="loading-percentage" id="loadingPercentage">0%</div>
-  <div class="loading-stats" id="loadingStats"></div>
-</div>
 
-<div class="bg-3d-elements" id="bg3dElements"></div>
+  <div class="bg-3d-elements" id="bg3dElements"></div>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="education.html" >Education</a>
-  <a href="experience.html">Experience</a>
-  <a href="skills.html">Skills</a>
-  <a href="contact.html">Contact</a>
-  <a href="My Projects.html">My Projects</a>
- 
-</nav>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="education.html">Education</a>
+    <a href="experience.html">Experience</a>
+    <a href="skills.html">Skills</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="My Projects.html">My Projects</a>
+  </nav>
 
+  <div class="container container-3d" id="mainContent" style="display:none;">
+    <h1 class="page-title page-title-3d floating-3d">Get In Touch</h1>
 
-<div class="container container-3d" id="mainContent" style="display:none;">
-  <h1 class="page-title page-title-3d floating-3d">Get In Touch</h1>
+    <!-- Contact Info -->
+    <div class="contact-container">
+      <div class="contact-card contact-card-3d">
+        <div class="contact-info">
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fas fa-envelope"></i></div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:inasimti9@gmail.com">inasimti9@gmail.com</a>
+            </div>
+          </div>
 
-  <div class="contact-container">
-    <div class="contact-card contact-card-3d">
-      <div class="contact-info">
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fas fa-envelope"></i></div>
-          <div class="contact-details">
-            <h3>Email</h3>
-            <a href="mailto:inasimti9@gmail.com">inasimti9@gmail.com</a>
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fas fa-phone"></i></div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>+94 77 3865 713</p>
+            </div>
+          </div>
+
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fab fa-linkedin"></i></div>
+            <div class="contact-details">
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/inasimti" target="_blank">linkedin.com/in/inasimti</a>
+            </div>
+          </div>
+
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fab fa-instagram"></i></div>
+            <div class="contact-details">
+              <h3>Instagram</h3>
+              <a href="https://www.instagram.com/inas_imti" target="_blank">@inas_imti</a>
+            </div>
+          </div>
+
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fab fa-facebook"></i></div>
+            <div class="contact-details">
+              <h3>Facebook</h3>
+              <a href="https://www.facebook.com/share/1Ec4FhveFs/" target="_blank">Facebook Profile</a>
+            </div>
+          </div>
+
+          <div class="contact-item contact-item-3d">
+            <div class="contact-icon contact-icon-3d"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Sri Lanka</p>
+            </div>
           </div>
         </div>
 
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fas fa-phone"></i></div>
-          <div class="contact-details">
-            <h3>Phone</h3>
-            <p>+94 77 3865 713</p>
+        <div class="map-container-3d">
+          <div class="map-3d">
+            <i class="fas fa-map-marked-alt" style="font-size:48px;color:#c1eb07;"></i>
           </div>
         </div>
 
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fab fa-linkedin"></i></div>
-          <div class="contact-details">
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/inasimti" target="_blank">linkedin.com/in/inasimti</a>
-          </div>
+        <div class="availability">
+          <p><i class="fas fa-clock"></i> I'm available for freelance projects and new opportunities</p>
         </div>
-
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fab fa-instagram"></i></div>
-          <div class="contact-details">
-            <h3>Instagram</h3>
-            <a href="https://www.instagram.com/inas_imti" target="_blank">@inas_imti</a>
-          </div>
-        </div>
-
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fab fa-facebook"></i></div>
-          <div class="contact-details">
-            <h3>Facebook</h3>
-            <a href="https://www.facebook.com/share/1Ec4FhveFs/" target="_blank">Facebook Profile</a>
-          </div>
-        </div>
-
-        <div class="contact-item contact-item-3d">
-          <div class="contact-icon contact-icon-3d"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-details">
-            <h3>Location</h3>
-            <p>Sri Lanka</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="map-container-3d">
-        <div class="map-3d">
-          <i class="fas fa-map-marked-alt" style="font-size: 48px; color: #c1eb07;"></i>
-        </div>
-      </div>
-
-      <div class="availability">
-        <p><i class="fas fa-clock"></i> I'm available for freelance projects and new opportunities</p>
       </div>
     </div>
-  </div>
 
-  <div class="contact-card contact-card-3d" style="margin-top: 30px;">
-    <h2 style="text-align: center; margin-bottom: 20px;">Send Me a Message</h2>
-    <form class="contact-form-3d">
-      <div class="form-group-3d">
-        <input type="text" class="form-input-3d" placeholder="Your Name" required>
-      </div>
-      <div class="form-group-3d">
-        <input type="email" class="form-input-3d" placeholder="Your Email" required>
-      </div>
-      <div class="form-group-3d">
-        <textarea class="form-input-3d" placeholder="Your Message" rows="5" required></textarea>
-      </div>
-      <div style="text-align: center;">
-        <button type="submit" class="btn-3d">Send Message</button>
-      </div>
-    </form>
-  </div>
+    <!-- WhatsApp Contact Form -->
+    <div class="contact-card contact-card-3d" style="margin-top: 30px;">
+      <h2 style="text-align:center; margin-bottom:20px;">Send Me a Message</h2>
+      <form class="contact-form-3d">
+        <div class="form-group-3d">
+          <input type="text" id="wa-name" class="form-input-3d" placeholder="Your Name" required>
+        </div>
+        <div class="form-group-3d">
+          <input type="email" id="wa-email" class="form-input-3d" placeholder="Your Email" required>
+        </div>
+        <div class="form-group-3d">
+          <textarea id="wa-message" class="form-input-3d" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <div style="text-align:center;">
+          <button type="submit" class="btn-3d">Send Message</button>
+        </div>
+      </form>
+    </div>
+</div>
 
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/inasimti"><img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon icon-3d"></a>
+      <img src="./Files/git.jpg" alt="GitHub" class="icon icon-3d">
+      <a href="https://www.facebook.com/share/1Ec4FhveFs/"><img src="./Files/facebook.webp" alt="Facebook" class="icon icon-3d"></a>
+      <a href="https://www.instagram.com/inas_imti"><img src="./Files/Insta.png" alt="Instagram" class="icon icon-3d"></a>
+      <a href="mailto:inasimti9@gmail.com"><img src="./Files/Mail.webp" alt="Email" class="icon icon-3d"></a>
+    </div>
+
+    <!-- News Ticker -->
+    <div class="news-ticker">
+      <div class="ticker-content">
+        <span>👨‍💻 Cyber Security Student | </span>
+        <span>🔐 Passionate about Ethical Hacking & Network Security | </span>
+        <span>💻 Learning SOC, Penetration Testing & Blue Team | </span>
+        <span>🚀 Building Secure Digital Solutions | </span>
+        <span>📍 Portfolio by Inas Imthiyas</span>
+      </div>
+    </div>
   
-  <button id="open-chat" style="position:fixed; bottom:20px; right:20px; background:#800000; color:white; border:none; padding:12px 18px; border-radius:50px; cursor:pointer; z-index:1000; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
-  AI Chat 🤖
-</button>
 
-
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/inasimti">
-      <img src="./Files/linkedIn.webp" alt="LinkedIn" class="icon icon-3d">
-    </a>
-    <img src="./Files/git.jpg" alt="GitHub" class="icon icon-3d">
-    <a href="https://www.facebook.com/share/1Ec4FhveFs/">
-      <img src="./Files/facebook.webp" alt="Facebook" class="icon icon-3d">
-    </a>
-    <a href="https://www.instagram.com/inas_imti">
-      <img src="./Files/Insta.png" alt="Instagram" class="icon icon-3d">
-    </a>
-    <a href="mailto:inasimti9@gmail.com">
-      <img src="./Files/Mail.webp" alt="Email" class="icon icon-3d">
-    </a>
-  </div>
-
-  <div id="ai-chat-container" style="display:none; position:fixed; bottom:80px; right:20px; width:350px; max-height:500px; border:2px solid #800000; border-radius:15px; background:white; box-shadow:0 4px 15px rgba(0,0,0,0.2); z-index:1000;">
-  <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px; background:#800000; color:white; border-radius:15px 15px 0 0;">
-    <span>AI Chat 🤖</span>
-    <button id="close-chat" style="background:none; border:none; color:white; font-weight:bold; cursor:pointer;">✖</button>
-  </div>
-  <div id="chat-box" style="height:300px; overflow-y:auto; padding:10px; background:#fff8f8; font-size:14px;"></div>
-  <div style="display:flex; padding:10px; gap:5px;">
-    <input type="text" id="user-input" placeholder="Ask something..." style="flex:1; padding:6px; border-radius:5px; border:1px solid #ccc;" />
-    <button id="send-btn" style="padding:6px 10px; border:none; border-radius:5px; background:#800000; color:white; cursor:pointer;">Send</button>
-  </div>
-  <div style="padding:0 10px 10px;">
-    <button id="upload-btn" style="padding:6px 10px; border:none; border-radius:5px; background:#555; color:white; cursor:pointer;">Upload Image</button>
-    <input type="file" id="file-input" accept="image/*" style="display:none;" />
-  </div>
-</div>
-
-  
-</div>
-
-<div class="news-ticker">
-  <div class="ticker-content">
-    <span>👨‍💻 Cyber Security Student | </span>
-    <span>🔐 Passionate about Ethical Hacking & Network Security | </span>
-    <span>💻 Learning SOC, Penetration Testing & Blue Team | </span>
-    <span>🚀 Building Secure Digital Solutions | </span>
-    <span>📍 Portfolio by Inas Imthiyas</span>
-  </div>
-</div>
-
-
-<script>
-const openChatBtn = document.getElementById('open-chat');
-const closeChatBtn = document.getElementById('close-chat');
-const chatContainer = document.getElementById('ai-chat-container');
-const chatBox = document.getElementById('chat-box');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const uploadBtn = document.getElementById('upload-btn');
-const fileInput = document.getElementById('file-input');
-
-// Replace with your serverless function URL
-const SERVER_URL = "https://your-server.vercel.app/chat";
-
-// Open / Close Chat
-openChatBtn.addEventListener('click', () => { 
-  chatContainer.style.display = 'block'; 
-  if(chatBox.innerHTML==="") addMessage("ai","Hello! I’m your AI assistant 🤖. Ask me anything or upload an image!"); 
-});
-closeChatBtn.addEventListener('click', () => { chatContainer.style.display = 'none'; });
-
-// Send message
-sendBtn.addEventListener('click', () => handleMessage(userInput.value));
-userInput.addEventListener('keypress', e => { if(e.key==="Enter") handleMessage(userInput.value); });
-
-// Upload image
-uploadBtn.addEventListener('click', () => fileInput.click());
-fileInput.addEventListener('change', handleFileUpload);
-
-// Add chat message
-function addMessage(type, text){
-  const div = document.createElement('div');
-  div.className = type;
-  div.style.margin="5px 0"; div.style.padding="5px 10px"; div.style.borderRadius="10px";
-  div.style.background = type==="user" ? "#ffe5e5" : "#f0e5ff";
-  div.innerHTML = `<b>${type==="user"?"You":"AI"}:</b> ${text}`;
-  chatBox.appendChild(div);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Handle user message
-async function handleMessage(message){
-  if(!message.trim()) return;
-  addMessage("user", message);
-  userInput.value="";
-  try{
-    const res = await fetch(SERVER_URL,{
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ message })
-    });
-    const data = await res.json();
-    addMessage("ai", data.reply);
-  } catch(e){
-    console.error(e);
-    addMessage("ai","Oops! Something went wrong.");
-  }
-}
-
-// Handle image upload
-async function handleFileUpload(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  addMessage("user",`Uploaded an image: ${file.name}`);
-  addMessage("ai","Image analysis will be added soon! Chat works fully.");
-}
-
-
-
-  // ✅ Loading animation logic restored
-  document.addEventListener('DOMContentLoaded', function() {
+  <!-- Scripts -->
+   <script src="whatsapp.js"></script>
+  <script>
+  // Loading animation
+  document.addEventListener('DOMContentLoaded', function(){
     const loader = document.getElementById('pageLoader');
     const mainContent = document.getElementById('mainContent');
     const percentage = document.getElementById('loadingPercentage');
@@ -312,17 +217,14 @@ async function handleFileUpload(e){
 
     const interval = setInterval(() => {
       progress += Math.floor(Math.random() * 10) + 5;
-      if (progress > 100) progress = 100;
-
+      if(progress > 100) progress = 100;
       percentage.textContent = progress + "%";
       progressBar.style.width = progress + "%";
-
-      if (progress % 20 === 0 && tipIndex < tips.length - 1) {
+      if(progress % 20 === 0 && tipIndex < tips.length-1){
         tipIndex++;
         loadingTips.textContent = tips[tipIndex];
       }
-
-      if (progress === 100) {
+      if(progress === 100){
         clearInterval(interval);
         loader.style.opacity = '0';
         setTimeout(() => {
@@ -330,26 +232,44 @@ async function handleFileUpload(e){
           mainContent.style.display = 'block';
         }, 600);
       }
-    }, 300);
+    },300);
   });
 
-  // ✅ Nav toggle (same as before)
-  document.addEventListener('DOMContentLoaded', function() {
+  // Nav toggle
+  document.addEventListener('DOMContentLoaded', function(){
     const menuToggle = document.createElement('button');
     menuToggle.innerHTML = '☰';
     menuToggle.classList.add('menu-toggle');
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function(){
       document.querySelector('nav').classList.toggle('responsive');
     });
     document.querySelector('nav').appendChild(menuToggle);
   });
 
-  // ✅ Contact form handler
-  document.querySelector('.contact-form-3d').addEventListener('submit', function(e) {
+  // WhatsApp form
+  document.querySelector('.contact-form-3d').addEventListener('submit', function(e){
     e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
+    const name = document.getElementById('wa-name').value.trim();
+    const email = document.getElementById('wa-email').value.trim();
+    const message = document.getElementById('wa-message').value.trim();
+    const phoneNumber = "94773865713"; // Your WhatsApp number
+    const text = `Hello Inas Imthiyas,
+I visited your portfolio website and would like to contact you.
+Name: ${name}
+Email: ${email}
+Message:
+${message}
+— Sent from your Web Resume`;
+    const encodedText = encodeURIComponent(text);
+    const url = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if(isMobile){
+      window.location.href = url;
+    }else{
+      window.open(url,'_blank');
+    }
     this.reset();
   });
-</script>
+  </script>
 </body>
 </html>
